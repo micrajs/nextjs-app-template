@@ -12,7 +12,7 @@ export const reportWebVitals = ({ id, name, label, value }: NextWebVitalsMetric)
    * of GA events. This allows you to track and monitor
    * these signals through the GA dashboard.
    */
-  window.gtag('event', name, {
+  gtag('event', name, {
     event_category:
       label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
     value: Math.round(name === 'CLS' ? value * 1000 : value),

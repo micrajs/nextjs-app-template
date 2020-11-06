@@ -1,17 +1,22 @@
 /// <reference types="next" />
 /// <reference types="next/types/global" />
+/// <reference types="gtag.js" />
 
 /**
  * Env variables:
  * This defines the available environmental variables
  * accessible through process.env.
  */
-type EnvVariables = {
+interface EnvVariables {
   NODE_ENV: 'development' | 'production' | 'test';
   APP_ENV: 'test' | 'alpha' | 'dev' | 'staging' | 'prod';
   APPLICATION_NAME: string;
   APPLICATION_URL: string;
-  GOOGLE_ANALYTICS_TRACKING_ID: string;
+  APP_DESCRIPTION: string;
+  APP_TYPE: string;
+  APP_COVER: string;
+  APP_ROBOTS: string;
+  NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID: string;
   NEXT_PUBLIC_SENTRY_DSN: string;
   SENTRY_ORG: string;
   SENTRY_PROJECT: string;
@@ -23,7 +28,6 @@ type EnvVariables = {
  * This is the global data layer used by
  * google analytics.
  */
-declare const gtag: any;
 declare const dataLayer: GADataLayer;
 type GADataLayer = any[];
 
@@ -42,6 +46,7 @@ type Use = {
   (namespace: 'store/saga'): import('redux-saga').SagaMiddleware;
   (namespace: 'theme'): import('app/theme/types').Theme;
   (namespace: 'translation'): import('i18next').i18n;
+  (namespace: 'tracking/fingerprint'): string;
   <T = any>(namespace: any): T;
 };
 
@@ -72,7 +77,7 @@ interface Window {
   config: Config;
   use: Use;
   dataLayer: GADataLayer;
-  gtag: any;
+  gtag: Gtag.Gtag;
 }
 
 /**
@@ -82,7 +87,7 @@ interface Window {
  * server.
  */
 declare namespace NodeJS {
-  type ProcessEnv = EnvVariables;
+  interface ProcessEnv extends EnvVariables {};
   interface Global {
     config: Config;
     use: Use;
