@@ -18,7 +18,7 @@ export const getStaticProps: GetStaticProps = async () => {
         // robots?: string;
         // cover?: string;
         // type?: string;
-      }
+      },
     },
   };
 };

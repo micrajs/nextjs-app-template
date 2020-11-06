@@ -19,11 +19,11 @@ export interface ErrorComponentProps extends ErrorProps {
   hasGetInitialPropsRun?: boolean;
 }
 
-export type PageComponentProps<T extends Record<string, any> = {}> = T & {
+export type PageComponentProps<T extends Record<string, any> = Record<string, any>> = T & {
   err?: Error;
   router: Router;
   meta?: MetaProps;
-}
+};
 
 export interface AppProps extends BaseAppProps<PageComponentProps> {
   err?: Error;
