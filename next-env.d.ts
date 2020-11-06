@@ -23,6 +23,7 @@ type EnvVariables = {
  * This is the global data layer used by
  * google analytics.
  */
+declare const gtag: any;
 declare const dataLayer: GADataLayer;
 type GADataLayer = any[];
 
@@ -71,6 +72,7 @@ interface Window {
   config: Config;
   use: Use;
   dataLayer: GADataLayer;
+  gtag: any;
 }
 
 /**
