@@ -1,6 +1,6 @@
 import { SplitFactory } from '@splitsoftware/splitio';
+import { deepMerge } from 'helpers/deepMerge';
 import type { FeatureFlagEvent, FeatureFlags, FlagListener } from 'app/feature-flags/types';
-import { deepMerge } from '../helpers/deepMerge';
 
 export class SplitIoFeatureFlags implements FeatureFlags {
   protected paused: boolean;

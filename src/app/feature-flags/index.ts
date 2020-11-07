@@ -1,6 +1,6 @@
 import { ServiceProvider } from '@micra/service-provider';
 import { SplitIoFeatureFlags } from 'app/feature-flags/SplitIoFeatureFlags';
-import { restartWithFingerprint } from 'app/feature-flags/helpers/restartWithFingerprint';
+import { onFingerprintGenerated } from 'helpers/onFingerprintGenerated';
 
 export class FeatureFlagsServiceProvider extends ServiceProvider {
   register() {
@@ -8,6 +8,12 @@ export class FeatureFlagsServiceProvider extends ServiceProvider {
   }
 
   boot() {
-    restartWithFingerprint();
+    onFingerprintGenerated((fingerprint) => {
+      use('feature-flags').restart({
+        core: {
+          key: fingerprint,
+        }
+      });
+    });
   }
 }
