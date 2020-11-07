@@ -21,6 +21,7 @@ interface EnvVariables {
   SENTRY_ORG: string;
   SENTRY_PROJECT: string;
   SENTRY_AUTH_TOKEN: string;
+  NEXT_PUBLIC_SPLIT_IO_KEY: string;
 };
 
 /**
@@ -47,6 +48,7 @@ type Use = {
   (namespace: 'theme'): import('app/theme/types').Theme;
   (namespace: 'translation'): import('i18next').i18n;
   (namespace: 'tracking/fingerprint'): string;
+  (namespace: 'feature-flags'): import('app/feature-flags/types').FeatureFlags;
   <T = any>(namespace: any): T;
 };
 
@@ -63,6 +65,7 @@ type Config = {
   (namespace: 'logger'): import('app/logger/types').LoggerConfig;
   (namespace: 'store'): import('app/store/types').StoreConfig;
   (namespace: 'translation'): import('app/translation/types').TranslationConfig;
+  (namespace: 'feature-flags'): import('app/feature-flags/types').FeatureFlagsConfig;
   <T = any>(variable: string): T | undefined;
   <T = any>(variable: string, fallback: T): T;
 };

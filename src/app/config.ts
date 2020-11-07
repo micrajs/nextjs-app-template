@@ -7,6 +7,7 @@ import { StoreServiceProvider } from 'app/store';
 import { ThemeServiceProvider } from 'app/theme';
 import { TranslationServiceProvider } from 'app/translation';
 import { TrackingServiceProvider } from 'app/tracking';
+import { FeatureFlagsServiceProvider } from 'app/feature-flags';
 import type { AppConfig } from 'app/types';
 
 app.config.set<AppConfig>('app', {
@@ -66,6 +67,7 @@ app.config.set<AppConfig>('app', {
    * Service providers
    */
   services: [
+    FeatureFlagsServiceProvider,
     TrackingServiceProvider,
     LoggerServiceProvider,
     StoreServiceProvider,

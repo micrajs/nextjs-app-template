@@ -27,6 +27,7 @@
     "@micra/tsyringe-service-container": "^0.0.3",
     "@sentry/browser": "^5.27.3",
     "@sentry/node": "^5.27.3",
+    "@splitsoftware/splitio": "^10.15.0",
     "graphql": "^15.4.0",
     "graphql-request": "^3.3.0",
     "i18next": "^19.8.3",
