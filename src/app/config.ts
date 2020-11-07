@@ -2,12 +2,13 @@ import app from '@micra/application';
 import { Kernel } from '@micra/kernel';
 import { TSyringeServiceContainer } from '@micra/tsyringe-service-container';
 import { ApiServiceProvider } from 'app/api';
+import { FeatureFlagsServiceProvider } from 'app/feature-flags';
 import { LoggerServiceProvider } from 'app/logger';
+import { StorageServiceProvider } from 'app/storage';
 import { StoreServiceProvider } from 'app/store';
 import { ThemeServiceProvider } from 'app/theme';
-import { TranslationServiceProvider } from 'app/translation';
 import { TrackingServiceProvider } from 'app/tracking';
-import { FeatureFlagsServiceProvider } from 'app/feature-flags';
+import { TranslationServiceProvider } from 'app/translation';
 import type { AppConfig } from 'app/types';
 
 app.config.set<AppConfig>('app', {
@@ -74,5 +75,6 @@ app.config.set<AppConfig>('app', {
     ThemeServiceProvider,
     TranslationServiceProvider,
     ApiServiceProvider,
+    StorageServiceProvider,
   ],
 });

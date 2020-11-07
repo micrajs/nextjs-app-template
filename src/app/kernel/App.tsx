@@ -5,6 +5,7 @@ import Providers from 'app/kernel/Providers';
 import { withRedux } from 'helpers/withRedux';
 import type { AppProps } from 'app/kernel/types';
 import { usePageViewTracker } from 'app/tracking/helpers/usePageViewTracker';
+import { getCookieClient } from 'app/storage/CookieStorage/helpers/getCookieClient';
 
 const App = ({ Component, pageProps, err, router }: AppProps) => {
   usePageViewTracker();
@@ -22,6 +23,11 @@ App.getInitialProps = async (appContext: AppContext) => {
   use('translation').changeLanguage(
     appContext.router.locale ?? config('translation.defaultLanguage'),
   );
+
+  // Set server cookie client
+  if (appContext.ctx?.req.headers.cookie) {
+    use('storage/cookie').setClient(getCookieClient(appContext.ctx));
+  }
 
   return NextApp.getInitialProps(appContext);
 };

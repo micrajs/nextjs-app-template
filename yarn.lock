@@ -1440,6 +1440,13 @@
   dependencies:
     tslib "^2.0.0"
 
+"@micra/in-memory-storage@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@micra/in-memory-storage/-/in-memory-storage-0.0.2.tgz#6495f082865ce10de3ce99938287b57efe81535c"
+  integrity sha512-gPdMjjgCfou/n90AiaGs6Pwo3NktVLBmfhkec1xKZa9J+eJe2rXivgEQt+36glF7MZm8wtRrrVm9W2HmB2Kxvg==
+  dependencies:
+    tslib "^2.0.0"
+
 "@micra/kernel@^0.0.3":
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@micra/kernel/-/kernel-0.0.3.tgz#366c82f04cf74707275c7e00e870f2a39973889b"
@@ -1463,6 +1470,13 @@
   dependencies:
     "@micra/core" "^0.0.4"
     tslib "^2.0.0"
+
+"@micra/storage-wrapper@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@micra/storage-wrapper/-/storage-wrapper-0.0.3.tgz#6d6d2aa7ab082744e3c8a14d5d4dba9e7a2f10e7"
+  integrity sha512-1x4IVbaadkFekYeqcDH5zFlM34PS9LA7shBmunT1rTV/yxyl426BQ5QHQvakTXvQbMszMuGiX2pbshCTU95ElA==
+  dependencies:
+    "@micra/core" "^0.0.7"
 
 "@micra/tsyringe-service-container@^0.0.3":
   version "0.0.3"

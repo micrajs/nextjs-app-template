@@ -49,6 +49,10 @@ type Use = {
   (namespace: 'translation'): import('i18next').i18n;
   (namespace: 'tracking/fingerprint'): string;
   (namespace: 'feature-flags'): import('app/feature-flags/types').FeatureFlags;
+  (namespace: 'storage/session'): import('@micra/storage-wrapper').StorageWrapper;
+  (namespace: 'storage/memory'): import('@micra/storage-wrapper').StorageWrapper;
+  (namespace: 'storage/local'): import('@micra/storage-wrapper').StorageWrapper;
+  (namespace: 'storage/cookie'): import('app/storage/CookieStorage/types').CookieStorage;
   <T = any>(namespace: any): T;
 };
 
