@@ -6,6 +6,6 @@ app.config.set<FeatureFlagsConfig>('feature-flags', {
     core: {
       authorizationKey: process.env.NEXT_PUBLIC_SPLIT_IO_KEY,
       key: 'anonymous',
-    }
+    },
   },
 });

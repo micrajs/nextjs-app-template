@@ -12,7 +12,7 @@ export class FeatureFlagsServiceProvider extends ServiceProvider {
       use('feature-flags').restart({
         core: {
           key: fingerprint,
-        }
+        },
       });
     });
   }

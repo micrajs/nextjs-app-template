@@ -1,5 +1,5 @@
-import { useFeatureFlagClient } from './useFeatureFlagClient';
 import { Flag } from 'app/feature-flags/FeatureFlagProvider/types';
+import { useFeatureFlagClient } from './useFeatureFlagClient';
 
 export const useFeatureFlag = (flag: string): Flag => {
   const client = useFeatureFlagClient();

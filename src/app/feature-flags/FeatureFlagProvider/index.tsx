@@ -15,20 +15,13 @@ export const FeatureFlagProvider = ({ children, featureFlags }: FeatureFlagProvi
 
   useIsomorphicEffect(
     () =>
-      featureFlags.on(
-        'UPDATE',
-        (client) => {
-          if (isMounted) {
-            setValue({ client });
-          }
-        },
-      ),
+      featureFlags.on('UPDATE', (client) => {
+        if (isMounted) {
+          setValue({ client });
+        }
+      }),
     [featureFlags],
   );
 
-  return (
-    <FeatureFlagContext.Provider value={value}>
-      {children}
-    </FeatureFlagContext.Provider>
-  );
+  return <FeatureFlagContext.Provider value={value}>{children}</FeatureFlagContext.Provider>;
 };
