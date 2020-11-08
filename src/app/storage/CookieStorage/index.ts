@@ -54,7 +54,9 @@ export class CookieStorageWrapper implements CookieStorage {
   get(key: string): Cookie | null {
     if (!SAFE_OBJECT.whitelist.includes(key)) {
       if (process.env.NODE_ENV !== 'production') {
-        console.error(`Blocked cookie "${key}" from being accessed. If this was intentional, add it to the whitelist.`)
+        console.error(
+          `Blocked cookie "${key}" from being accessed. If this was intentional, add it to the whitelist.`,
+        );
       }
       return null;
     }
@@ -69,7 +71,9 @@ export class CookieStorageWrapper implements CookieStorage {
   set(key: string, value: string, options: CookieOptions = {}): Cookie | null {
     if (!SAFE_OBJECT.whitelist.includes(key)) {
       if (process.env.NODE_ENV !== 'production') {
-        console.error(`Blocked cookie "${key}" from being set. If this was intentional, add it to the whitelist.`)
+        console.error(
+          `Blocked cookie "${key}" from being set. If this was intentional, add it to the whitelist.`,
+        );
       }
       return null;
     }

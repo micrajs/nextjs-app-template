@@ -59,7 +59,9 @@ export class CookieGuard {
     }
 
     if (process.env.NODE_ENV !== 'production') {
-      console.error(`Blocked cookie "${cookie.name}" from being set. If this was intentional, add it to the whitelist.`)
+      console.error(
+        `Blocked cookie "${cookie.name}" from being set. If this was intentional, add it to the whitelist.`,
+      );
     }
 
     return false;
