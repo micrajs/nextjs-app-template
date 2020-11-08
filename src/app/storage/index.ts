@@ -3,6 +3,7 @@ import { ServiceProvider } from '@micra/service-provider';
 import { InMemoryStorage } from '@micra/in-memory-storage';
 import { CookieStorageWrapper } from 'app/storage/CookieStorage';
 import { getCookieClient } from 'app/storage/CookieStorage/helpers/getCookieClient';
+import { CookieGuard } from './CookieGuard';
 
 export class StorageServiceProvider extends ServiceProvider {
   register() {
@@ -40,5 +41,7 @@ export class StorageServiceProvider extends ServiceProvider {
      * and the server.
      */
     this.container.value('storage/cookie', new CookieStorageWrapper(getCookieClient()));
+
+    this.container.value('storage/cookie-guard', new CookieGuard(config('storage.cookies')));
   }
 }

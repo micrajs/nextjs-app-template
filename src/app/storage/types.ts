@@ -1,3 +1,8 @@
+export interface CookieGuardConfig {
+  whitelist: string[];
+  optional: string[];
+}
+
 export interface StorageConfig {
-  default?: void;
+  cookies: CookieGuardConfig;
 }

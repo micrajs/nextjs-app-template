@@ -70,6 +70,7 @@ type Config = {
   (namespace: 'store'): import('app/store/types').StoreConfig;
   (namespace: 'translation'): import('app/translation/types').TranslationConfig;
   (namespace: 'feature-flags'): import('app/feature-flags/types').FeatureFlagsConfig;
+  (namespace: 'storage'): import('app/storage/types').StorageConfig;
   <T = any>(variable: string): T | undefined;
   <T = any>(variable: string, fallback: T): T;
 };

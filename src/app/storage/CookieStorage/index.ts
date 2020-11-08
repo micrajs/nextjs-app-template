@@ -79,7 +79,7 @@ export class CookieStorageWrapper implements CookieStorage {
   }
 
   clear(): boolean {
-    this.jarIndex.forEach(cookie => {
+    this.jarIndex.forEach((cookie) => {
       this.set(cookie, '', { expires: new Date('01/01/1970') });
     });
 
