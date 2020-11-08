@@ -47,8 +47,6 @@ export class CookieStorageWrapper implements CookieStorage {
     const cookie: Cookie = {
       name: key,
       value,
-      secure: false,
-      httpOnly: false,
       ...options,
     };
 
@@ -80,7 +78,7 @@ export class CookieStorageWrapper implements CookieStorage {
 
   clear(): boolean {
     this.jarIndex.forEach((cookie) => {
-      this.set(cookie, '', { expires: new Date('01/01/1970') });
+      this.remove(cookie);
     });
 
     this.flush();
