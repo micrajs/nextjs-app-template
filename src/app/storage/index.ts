@@ -48,6 +48,8 @@ export class StorageServiceProvider extends ServiceProvider {
      * from being set. This allows us to explicitly ask users to accept
      * and opt-in cookies.
      */
-    this.container.value('storage/cookie-guard', new CookieGuard(config('storage.cookies')));
+    if (process.browser) {
+      this.container.value('storage/cookie-guard', new CookieGuard(config('storage.cookies')));
+    }
   }
 }
