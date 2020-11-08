@@ -42,6 +42,12 @@ export class StorageServiceProvider extends ServiceProvider {
      */
     this.container.value('storage/cookie', new CookieStorageWrapper(getCookieClient()));
 
+    /**
+     * Cookie guard
+     * This class guards the cookies and blocks unwanted/unauthorized cookies
+     * from being set. This allows us to explicitly ask users to accept
+     * and opt-in cookies.
+     */
     this.container.value('storage/cookie-guard', new CookieGuard(config('storage.cookies')));
   }
 }
