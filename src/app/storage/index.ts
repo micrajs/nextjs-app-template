@@ -40,7 +40,10 @@ export class StorageServiceProvider extends ServiceProvider {
      * Cookies are a useful way to traffic information between the client
      * and the server.
      */
-    this.container.value('storage/cookie', new CookieStorageWrapper(getCookieClient()));
+    this.container.value(
+      'storage/cookie',
+      new CookieStorageWrapper(getCookieClient(), config('storage.cookies')),
+    );
 
     /**
      * Cookie guard

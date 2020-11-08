@@ -18,8 +18,10 @@ const SAFE_OBJECT: CookieGuardConfig = {
 
 export class CookieGuard {
   constructor({ whitelist, optional }: CookieGuardConfig) {
-    SAFE_OBJECT.whitelist = [...whitelist];
-    SAFE_OBJECT.optional = [...optional];
+    if (SAFE_OBJECT.whitelist.length === 0) {
+      SAFE_OBJECT.whitelist = [...whitelist];
+      SAFE_OBJECT.optional = [...optional];
+    }
 
     this.init();
   }
@@ -32,7 +34,7 @@ export class CookieGuard {
       get() {
         return cookieGetterOrig.apply(document);
       },
-      set(): void {
+      set() {
         if (self.allows(arguments[0])) {
           return cookieSetterOrig.apply(document, arguments);
         }
@@ -52,6 +54,14 @@ export class CookieGuard {
   allows(definition: string) {
     const [cookie] = cookieParser(definition);
 
-    return SAFE_OBJECT.whitelist.includes(cookie.name);
+    if (SAFE_OBJECT.whitelist.includes(cookie.name)) {
+      return true;
+    }
+
+    if (process.env.NODE_ENV !== 'production') {
+      console.error(`Blocked cookie "${cookie.name}" from being set. If this was intentional, add it to the whitelist.`)
+    }
+
+    return false;
   }
 }

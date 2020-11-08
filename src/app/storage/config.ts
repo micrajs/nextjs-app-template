@@ -9,7 +9,9 @@ app.config.set<StorageConfig>('storage', {
      * to be set. Any cookie whose name isn't included
      * will be blocked from being stored.
      */
-    whitelist: [],
+    whitelist: [
+      'session_id',
+    ],
 
     /**
      * Optional cookies
@@ -17,6 +19,6 @@ app.config.set<StorageConfig>('storage', {
      * accepted. The cookie guard can be used to explicitly
      * include any of these names in the whitelist.
      */
-    optional: [],
+    optional: ['_ga', '_gid', `_gat_gtag_${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID.replace(/\-/g, '_')}`],
   },
 });

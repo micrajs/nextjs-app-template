@@ -1,11 +1,23 @@
 import { cookieEncoder } from 'app/storage/CookieStorage/cookieEncoder';
 import { cookieParser } from 'app/storage/CookieStorage/cookieParser';
-import {
+import type {
   Cookie,
   CookieStorage,
   CookieOptions,
   CookieClient,
 } from 'app/storage/CookieStorage/types';
+import type { CookieGuardConfig } from 'app/storage/types';
+
+/**
+ * SAFE_OBJECT
+ * This object is declared outside the scope of the CookieGuard's
+ * instance. This makes sure that the values are not accessible
+ * to malicious script trying to change the instance.
+ */
+const SAFE_OBJECT: CookieGuardConfig = {
+  whitelist: [],
+  optional: [],
+};
 
 export class CookieStorageWrapper implements CookieStorage {
   protected client: CookieClient;
@@ -14,8 +26,12 @@ export class CookieStorageWrapper implements CookieStorage {
 
   protected jar: Record<Cookie['name'], Cookie> = {};
 
-  constructor(client: CookieClient) {
+  constructor(client: CookieClient, options?: CookieGuardConfig) {
     this.client = client;
+    if (SAFE_OBJECT.whitelist.length === 0 && options) {
+      SAFE_OBJECT.whitelist = [...options.whitelist];
+      SAFE_OBJECT.optional = [...options.optional];
+    }
     this.hydrate();
   }
 
@@ -36,6 +52,13 @@ export class CookieStorageWrapper implements CookieStorage {
   }
 
   get(key: string): Cookie | null {
+    if (!SAFE_OBJECT.whitelist.includes(key)) {
+      if (process.env.NODE_ENV !== 'production') {
+        console.error(`Blocked cookie "${key}" from being accessed. If this was intentional, add it to the whitelist.`)
+      }
+      return null;
+    }
+
     if (this.has(key)) {
       return this.jar[key];
     }
@@ -43,7 +66,14 @@ export class CookieStorageWrapper implements CookieStorage {
     return null;
   }
 
-  set(key: string, value: string, options: CookieOptions = {}): Cookie {
+  set(key: string, value: string, options: CookieOptions = {}): Cookie | null {
+    if (!SAFE_OBJECT.whitelist.includes(key)) {
+      if (process.env.NODE_ENV !== 'production') {
+        console.error(`Blocked cookie "${key}" from being set. If this was intentional, add it to the whitelist.`)
+      }
+      return null;
+    }
+
     const cookie: Cookie = {
       name: key,
       value,
@@ -68,6 +98,9 @@ export class CookieStorageWrapper implements CookieStorage {
   }
 
   has(key: string): boolean {
+    if (!SAFE_OBJECT.whitelist.includes(key)) {
+      return false;
+    }
     return this.jarIndex.includes(key);
   }
 
