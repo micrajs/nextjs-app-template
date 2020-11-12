@@ -1,13 +1,12 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/micrajs/jsos/latest/.config/assets/logo.png" width="25%" />
+  <img src="https://raw.githubusercontent.com/micrajs/micrajs/live/.assets/logo.png" width="25%" />
 </div>
 
-<h1 align="center">@micra/react-ui</h1>
+<h1 align="center">@micra/nextjs-app-template</h1>
 
 <p align="center">
-  <img alt="version" src="https://img.shields.io/npm/v/@micra/react-ui.svg">
-  <img alt="issues" src="https://img.shields.io/github/issues/micrajs/react-ui.svg">
-  <img alt="prs" src="https://img.shields.io/github/issues-pr/micrajs/react-ui.svg">
+  <img alt="issues" src="https://img.shields.io/github/issues/micrajs/nextjs-app-template.svg">
+  <img alt="prs" src="https://img.shields.io/github/issues-pr/micrajs/nextjs-app-template.svg">
 </p>
 
 <hr />
