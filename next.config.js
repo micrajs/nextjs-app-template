@@ -18,13 +18,10 @@ const COMMIT_SHA =
 
 process.env.SENTRY_DSN = SENTRY_DSN;
 
-const config = {
+let config = {
   i18n: {
     locales: ['en', 'fr'],
     defaultLocale: 'en',
-  },
-  pwa: {
-    dest: 'public'
   },
   webpack: (config, options) => {
     if (!options.isServer) {
@@ -53,4 +50,12 @@ const config = {
   },
 };
 
-module.exports = withPWA(withSourceMaps(config));
+if (process.env === 'production') {
+  config.pwa = {
+    dest: 'public',
+    disable: process.env.NODE_ENV !== 'production',
+  };
+  config = withPWA(config);
+}
+
+module.exports = withSourceMaps(config);

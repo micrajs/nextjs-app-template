@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
+    "@micra/cli": "^0.0.25",
     "@sentry/webpack-plugin": "^1.13.0",
     "@testing-library/jest-dom": "^5.11.6",
     "@types/graphql": "^14.5.0",

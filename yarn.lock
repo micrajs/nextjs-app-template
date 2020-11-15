@@ -1501,6 +1501,83 @@
     "@micra/multi-env" "^0.0.2"
     tslib "^2.0.0"
 
+"@micra/assistant-core@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@micra/assistant-core/-/assistant-core-0.0.5.tgz#4c936633d3bd35fba37a7afedc4126efc0d85a84"
+  integrity sha512-UZQE0pi5wNpzkwTG8ky02BOehDOJSDR+z6ZsruIG+340uIihzRqjRwZ8UE6cFIisw5jt1UHwRKEfcm90q47dwA==
+  dependencies:
+    "@micra/assistant-parser" "^0.0.2"
+    "@micra/cli-router" "^0.0.1"
+    "@micra/core" "^0.0.7"
+    tslib "^2.0.0"
+
+"@micra/assistant-help-block@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@micra/assistant-help-block/-/assistant-help-block-0.0.1.tgz#12db16590f0fa847faa42452223b74ae11eeb1d8"
+  integrity sha512-axSHgyp/qsBam73+Pe0k7eXu2hEsBpcAUYUxDA9PjoeUhqAhdu907tmOcu8ZpE+N1k0VCS/KOOW+8jWlp7Db0g==
+  dependencies:
+    "@micra/core" "^0.0.4"
+    tslib "^2.0.0"
+
+"@micra/assistant-parser@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@micra/assistant-parser/-/assistant-parser-0.0.2.tgz#390275fa224a602288a5607d910a751d2a85cabe"
+  integrity sha512-P2/2hNxnEyYP7lXuVOTpq9mbDkfmT5tK8wXG5547TSxdOLapab18gVKN+PVbi7FQoZXWmK9NuiLPNHEr+OEpoQ==
+  dependencies:
+    "@micra/core" "^0.0.7"
+    tslib "^2.0.0"
+
+"@micra/chalk-logger@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@micra/chalk-logger/-/chalk-logger-0.0.1.tgz#a070e9bb63ac91867c91ecae77af2bcf9cd15695"
+  integrity sha512-nz8owXzkkV5nwo097nizFRLo6glGEma/Pmhp3MkY3Og7qb4o0ex+2DABVpB3S5y2CL79DbWgK7sU2emOqQU/tQ==
+  dependencies:
+    "@micra/core" "^0.0.4"
+    chalk "^4.0.0"
+    tslib "^2.0.0"
+
+"@micra/cli-router@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@micra/cli-router/-/cli-router-0.0.1.tgz#ef94b5abd851d9a6056352148576eb23c6208264"
+  integrity sha512-FooPke5cYXsUT553US+jsKVjCQIoc6RH9B0GFQyOZOBMxbLxJeHVocGXnaDo94COQq/Ya59YDGANFMgHLgMJ3g==
+  dependencies:
+    "@micra/core" "^0.0.4"
+    tslib "^2.0.0"
+
+"@micra/cli-router@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@micra/cli-router/-/cli-router-0.0.2.tgz#d2cf963b22d6ab9f96907f92fa06f6ad4f8a084c"
+  integrity sha512-s4rL9BCsoQoD0UqMbGciqjBpWgN2w32QUOow8RraI+pKKsrK1aH8tdDK4k5+sVAK1ul33KewZ6EqF96nUhgm/A==
+  dependencies:
+    "@micra/core" "^0.0.7"
+    tslib "^2.0.0"
+
+"@micra/cli@^0.0.25":
+  version "0.0.25"
+  resolved "https://registry.yarnpkg.com/@micra/cli/-/cli-0.0.25.tgz#0d6a3aa916ace77d0d4d7863c5cb3b08a7c988a1"
+  integrity sha512-U5WK0xyEBHYpc0pucQZvnYC/xWWH3e6gKiHpl3tTifUjXpSRKuMraS6dRt2ExUflewp78xZCSFQyZ3oA1JGAlg==
+  dependencies:
+    "@micra/application" "^0.0.8"
+    "@micra/assistant-core" "^0.0.5"
+    "@micra/assistant-help-block" "^0.0.1"
+    "@micra/assistant-parser" "^0.0.2"
+    "@micra/chalk-logger" "^0.0.1"
+    "@micra/cli-router" "^0.0.2"
+    "@micra/config" "^0.0.5"
+    "@micra/core" "^0.0.7"
+    "@micra/dot-env" "^0.0.2"
+    "@micra/kernel" "^0.0.3"
+    "@micra/mustache-template-engine" "^0.0.1"
+    "@micra/service-provider" "^0.0.2"
+    "@micra/theme-generator" "^0.0.13"
+    "@micra/tsyringe-service-container" "^0.0.2"
+    dotenv "^8.2.0"
+    lodash "^4.17.20"
+    pluralize "^8.0.0"
+    prettier "^2.0.4"
+    reflect-metadata "^0.1.13"
+    rimraf "^3.0.2"
+
 "@micra/config@^0.0.5":
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/@micra/config/-/config-0.0.5.tgz#7afcd91bafa3c066062db70296889f440bcb5b13"
@@ -1537,12 +1614,28 @@
   dependencies:
     tslib "^2.0.0"
 
+"@micra/dot-env@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@micra/dot-env/-/dot-env-0.0.2.tgz#d9ea96c7893c76a73fe173df78f90a48aced5b97"
+  integrity sha512-+o8wUy90CNOhJbu2kCjHgIp6P2V+kdJIyOWpOGztGehAke+1eIC+5htuysk7KtqiNe387cg/hzPO3wgDxIvdPA==
+  dependencies:
+    "@micra/core" "^0.0.4"
+    dotenv "^8.2.0"
+    tslib "^2.0.0"
+
 "@micra/in-memory-storage@^0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@micra/in-memory-storage/-/in-memory-storage-0.0.2.tgz#6495f082865ce10de3ce99938287b57efe81535c"
   integrity sha512-gPdMjjgCfou/n90AiaGs6Pwo3NktVLBmfhkec1xKZa9J+eJe2rXivgEQt+36glF7MZm8wtRrrVm9W2HmB2Kxvg==
   dependencies:
     tslib "^2.0.0"
+
+"@micra/jsos@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@micra/jsos/-/jsos-0.0.6.tgz#5acdf1d31d0e9a147162dbd1b0700f636ca68402"
+  integrity sha512-REiANmxqg3z2MqWws8dLD7Gkn352obl3gNbk1CNEcI1Zq0OQTa9SuLG8hvZsumh72IkYpl35Al4ibMagVtIyIA==
+  dependencies:
+    tslib "^2.0.1"
 
 "@micra/kernel@^0.0.3":
   version "0.0.3"
@@ -1560,6 +1653,15 @@
     "@micra/core" "^0.0.4"
     tslib "^2.0.0"
 
+"@micra/mustache-template-engine@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@micra/mustache-template-engine/-/mustache-template-engine-0.0.1.tgz#5e2aeef462f3067c1c27f5a54fe9c8684bda659a"
+  integrity sha512-SqN2SlTk1cQMU1VoE4rbCryHuQ/ab+YTbz6ZFzEL5VDUXRn7pf7ynqXSurVPyNWLGQiNfbUleOvI4FAXVUdAhA==
+  dependencies:
+    "@micra/core" "^0.0.4"
+    mustache "^4.0.0"
+    tslib "^2.0.0"
+
 "@micra/service-provider@^0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@micra/service-provider/-/service-provider-0.0.2.tgz#97819ad48e07d4bf1eb003bde8d5e99abc6b6662"
@@ -1574,6 +1676,22 @@
   integrity sha512-1x4IVbaadkFekYeqcDH5zFlM34PS9LA7shBmunT1rTV/yxyl426BQ5QHQvakTXvQbMszMuGiX2pbshCTU95ElA==
   dependencies:
     "@micra/core" "^0.0.7"
+
+"@micra/theme-generator@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@micra/theme-generator/-/theme-generator-0.0.13.tgz#51e17090ba4c93063466f5b94993257952e0ec73"
+  integrity sha512-V/TC3xcpv2+H3wdaYQW/Mj2PDfroMsh+o45fIIGKoF/mmMRlYFLEfPo6lL+yOGuRFHBY+BhiKDAbWKBdMZr6/A==
+  dependencies:
+    "@micra/jsos" "^0.0.6"
+
+"@micra/tsyringe-service-container@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@micra/tsyringe-service-container/-/tsyringe-service-container-0.0.2.tgz#c05b61e9258990ead052676e814a27289cb5b867"
+  integrity sha512-5R72LmjFY8so0y9UesvSmk9k3NEgd1bhWlHj925AkTX8Ie20kMPUxCQKQCqpBvzcN64oGL0e1fHdEOmODJlg6w==
+  dependencies:
+    "@micra/core" "^0.0.4"
+    tslib "^2.0.0"
+    tsyringe "^4.3.0"
 
 "@micra/tsyringe-service-container@^0.0.3":
   version "0.0.3"
@@ -4094,6 +4212,11 @@ domutils@^2.0.0:
     domelementtype "^2.0.1"
     domhandler "^3.3.0"
 
+dotenv@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
+  integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
+
 duplexify@^3.4.2, duplexify@^3.6.0:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/duplexify/-/duplexify-3.7.1.tgz#2a4df5317f6ccfd91f86d6fd25d8d8a103b88309"
@@ -6458,7 +6581,7 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "^3.0.0"
 
-lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19:
+lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
@@ -6782,6 +6905,11 @@ msw@^0.21.3:
     node-request-interceptor "^0.5.1"
     statuses "^2.0.0"
     yargs "^16.0.3"
+
+mustache@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/mustache/-/mustache-4.0.1.tgz#d99beb031701ad433338e7ea65e0489416c854a2"
+  integrity sha512-yL5VE97+OXn4+Er3THSmTdCFCtx5hHWzrolvH+JObZnUYwuaG7XV+Ch4fR2cIrcYI0tFHxS7iyFYl14bW8y2sA==
 
 nan@^2.12.1:
   version "2.14.2"
@@ -7499,6 +7627,11 @@ platform@1.3.3:
   resolved "https://registry.yarnpkg.com/platform/-/platform-1.3.3.tgz#646c77011899870b6a0903e75e997e8e51da7461"
   integrity sha1-ZGx3ARiZhwtqCQPnXpl+jlHadGE=
 
+pluralize@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-8.0.0.tgz#1a6fa16a38d12a1901e0320fa017051c539ce3b1"
+  integrity sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==
+
 pnp-webpack-plugin@1.6.4:
   version "1.6.4"
   resolved "https://registry.yarnpkg.com/pnp-webpack-plugin/-/pnp-webpack-plugin-1.6.4.tgz#c9711ac4dc48a685dabafc86f8b6dd9f8df84149"
@@ -7641,7 +7774,7 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^2.1.2:
+prettier@^2.0.4, prettier@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.1.2.tgz#3050700dae2e4c8b67c4c3f666cdb8af405e1ce5"
   integrity sha512-16c7K+x4qVlJg9rEbXl7HEGmQyZlG4R9AgP+oHKRMsMsuk8s+ATStlf1NpDqyBI1HpVyfjLOeMhH2LvuNvV5Vg==

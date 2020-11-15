@@ -1,0 +1,33 @@
+import dynamic from 'next/dynamic';
+import type { GetStaticProps } from 'next';
+import { connect } from 'helpers/connect';
+import { {{{ NAME.CAPITALIZED }}}Page } from 'routes/{{{ NAME.CAPITALIZED }}}/{{{ NAME.CAPITALIZED }}}Page';
+import { use{{{ NAME.CAPITALIZED }}}Page } from 'routes/{{{ NAME.CAPITALIZED }}}/use{{{ NAME.CAPITALIZED }}}Page';
+
+export const getStaticProps: GetStaticProps = async () => {
+  /**
+   * This is where you can extend the page's props and
+   * define, for instance, the custom meta tags
+   * for the page.
+   */
+  return {
+    props: {
+      meta: {
+        title: '{{{ NAME.CAPITALIZED }}}',
+        // description?: string;
+        // robots?: string;
+        // cover?: string;
+        // type?: string;
+      },
+    },
+  };
+};
+
+export default dynamic(async () => {
+  /**
+   * This is where you can load any modules that
+   * are required by the given route, like
+   * domains, translations, etc.
+   */
+  return connect(use{{{ NAME.CAPITALIZED }}}Page, {{{ NAME.CAPITALIZED }}}Page);
+});
