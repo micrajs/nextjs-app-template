@@ -1,3 +1,4 @@
+const withPWA = require('next-pwa');
 const withSourceMaps = require('@zeit/next-source-maps');
 const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 
@@ -9,20 +10,21 @@ const {
   NODE_ENV,
   VERCEL_GITHUB_COMMIT_SHA,
   VERCEL_GITLAB_COMMIT_SHA,
-  VERCEL_BITBUCKET_COMMIT_SHA
+  VERCEL_BITBUCKET_COMMIT_SHA,
 } = process.env;
 
 const COMMIT_SHA =
-  VERCEL_GITHUB_COMMIT_SHA ||
-  VERCEL_GITLAB_COMMIT_SHA ||
-  VERCEL_BITBUCKET_COMMIT_SHA;
+  VERCEL_GITHUB_COMMIT_SHA || VERCEL_GITLAB_COMMIT_SHA || VERCEL_BITBUCKET_COMMIT_SHA;
 
 process.env.SENTRY_DSN = SENTRY_DSN;
 
-module.exports = withSourceMaps({
+const config = {
   i18n: {
     locales: ['en', 'fr'],
     defaultLocale: 'en',
+  },
+  pwa: {
+    dest: 'public'
   },
   webpack: (config, options) => {
     if (!options.isServer) {
@@ -42,11 +44,13 @@ module.exports = withSourceMaps({
           include: '.next',
           ignore: ['node_modules'],
           urlPrefix: '~/_next',
-          release: COMMIT_SHA
-        })
+          release: COMMIT_SHA,
+        }),
       );
     }
 
     return config;
   },
-});
+};
+
+module.exports = withPWA(withSourceMaps(config));
