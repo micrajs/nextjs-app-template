@@ -1,0 +1,7 @@
+import { validate } from '@micra/validator';
+// import { required, optional } from '@micra/validation-rules';
+import type { {{{ NAME.PASCAL }}} } from 'domains/{{{ DOMAIN.SINGULAR.KEBAB }}}/types/common/{{{ NAME.PASCAL }}}';
+
+export const validate{{{ NAME.PASCAL }}} = (input: Record<string, unknown>) => validate<{{{ NAME.PASCAL }}}>(input, {
+  // TODO: implement {{{ NAME.PASCAL }}} validation rules.
+});

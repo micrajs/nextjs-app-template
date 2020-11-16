@@ -1,0 +1,14 @@
+import type { {{{ COMPONENT.PASCAL }}}Props } from 'domains/{{{ DOMAIN }}}/experience/components/{{{ COMPONENT.PASCAL }}}/types';
+
+export const use{{{ COMPONENT.PASCAL }}} = (props: Partial<{{{ COMPONENT.PASCAL }}}Props>): {{{ COMPONENT.PASCAL }}}Props => {
+  /**
+   * Setup hook
+   * This is where the logic to setup the page is done. This hooks
+   * is responsible for getting all that the page needs and
+   * return an object that will be passed as props.
+   */
+
+  return {
+    ...props,
+  };
+};

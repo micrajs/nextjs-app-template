@@ -1,0 +1,25 @@
+import {
+  {{{ NAME.PASCAL }}}Input,
+  {{{ NAME.PASCAL }}}Response,
+  {{{ NAME.PASCAL }}}DataSource,
+} from 'domains/{{{ DOMAIN.SINGULAR.KEBAB }}}/types/data-sources/{{{ NAME.PASCAL }}}DataSource';
+import type { GraphQLClient } from 'graphql-request';
+
+export class {{{ NAME.PASCAL }}}GraphQLDataSource implements {{{ NAME.PASCAL }}}DataSource {
+  protected source: GraphQLClient;
+
+  constructor(
+    protected client = use('api/graphql-client'),
+  ) {
+    this.source = client(`${process.env.APPLICATION_URL}/api/graphql`);
+  }
+
+  async run(input: {{{ NAME.PASCAL }}}Input): Promise<{{{ NAME.PASCAL }}}Response> {
+    return this.source.request(
+      `
+        # TODO: implement {{{ NAME.PASCAL }}}DataSource GraphQL operation.
+      `,
+      input,
+    );
+  }
+}

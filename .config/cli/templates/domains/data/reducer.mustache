@@ -1,0 +1,14 @@
+import { ReduxReducer } from 'app/store/redux-reducer';
+import type { {{{ NAME.PASCAL }}}Store } from 'domains/{{{ DOMAIN.SINGULAR.KEBAB }}}/types/stores/{{{ NAME.PASCAL }}}Store';
+import type { {{{ NAME.PASCAL }}}Actions } from 'domains/{{{ DOMAIN.SINGULAR.KEBAB }}}/types/actions/{{{ NAME.PASCAL }}}Actions';
+
+export const INITIAL_STATE: {{{ NAME.PASCAL }}}Store = {
+  // TODO: implement {{{ NAME.PASCAL }}}Store's initial state.
+};
+
+const {{{ NAME.CAMEL }}}Reducer = new ReduxReducer<
+  {{{ NAME.PASCAL }}}Store,
+  {{{ NAME.PASCAL }}}Actions
+>('{{{ NAME.KEBAB }}}', INITIAL_STATE);
+
+export { {{{ NAME.CAMEL }}}Reducer };

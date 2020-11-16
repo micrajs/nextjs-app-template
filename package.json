@@ -27,6 +27,8 @@
     "@micra/service-provider": "^0.0.2",
     "@micra/storage-wrapper": "^0.0.3",
     "@micra/tsyringe-service-container": "^0.0.3",
+    "@micra/validation-rules": "^0.0.9",
+    "@micra/validator": "^0.0.7",
     "@sentry/browser": "^5.27.4",
     "@sentry/node": "^5.27.4",
     "@splitsoftware/splitio": "^10.15.1",
