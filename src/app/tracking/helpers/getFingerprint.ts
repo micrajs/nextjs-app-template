@@ -6,5 +6,6 @@ export const getFingerprint = async (container: Application['container']) => {
     const fingerprint = await FingerprintJS.load();
     const { visitorId } = await fingerprint.get();
     container.value('tracking/fingerprint', visitorId);
+    window.dispatchEvent(new Event('onFingerprint'));
   }
 };

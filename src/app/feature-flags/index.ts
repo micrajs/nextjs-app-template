@@ -1,6 +1,6 @@
 import { ServiceProvider } from '@micra/service-provider';
 import { SplitIoFeatureFlags } from 'app/feature-flags/SplitIoFeatureFlags';
-import { onFingerprintGenerated } from 'helpers/onFingerprintGenerated';
+import { onFingerprintGenerated } from 'app/tracking/helpers/onFingerprintGenerated';
 
 export class FeatureFlagsServiceProvider extends ServiceProvider {
   register() {

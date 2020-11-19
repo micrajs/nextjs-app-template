@@ -37,7 +37,7 @@ const MakeAction = {
         [
           domains(
             DOMAIN.SINGULAR.KEBAB,
-            `data/actions/${NAME.PASCAL}.ts`,
+            `data/actions/${NAME.CAMEL}.ts`,
           ),
           template('domains.data.action'),
         ],

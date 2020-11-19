@@ -1,5 +1,5 @@
 import { ServiceProvider } from '@micra/service-provider';
-import { onFingerprintGenerated } from 'helpers/onFingerprintGenerated';
+import { onFingerprintGenerated } from 'app/tracking/helpers/onFingerprintGenerated';
 import { getFingerprint } from './helpers/getFingerprint';
 
 export class TrackingServiceProvider extends ServiceProvider {

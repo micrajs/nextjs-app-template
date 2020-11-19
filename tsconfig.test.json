@@ -2,6 +2,20 @@
   "extends": "./tsconfig",
   "compilerOptions": {
     "jsx": "react",
-    "module": "commonjs"
-  }
+    "module": "commonjs",
+    "baseUrl": "./src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".config/cli/templates/domains/data/test.ts",
+    "./next-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

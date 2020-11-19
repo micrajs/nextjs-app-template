@@ -18,14 +18,16 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": "./src",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": [
     "next-env.d.ts",
+    ".config/testing/testing.register.d.ts",
+    "**/*.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, ".config/cli/templates/domains/data/test.ts"  ],
+  ],
   "exclude": [
     "node_modules"
   ]

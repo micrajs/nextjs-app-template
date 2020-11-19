@@ -91,7 +91,7 @@ const MakeReducer = {
         [
           domains(
             DOMAIN.SINGULAR.KEBAB,
-            `data/actions/${RESET_ACTION_NAME.PASCAL}.ts`,
+            `data/actions/${RESET_ACTION_NAME.CAMEL}.ts`,
           ),
           template('domains.data.action'),
         ],

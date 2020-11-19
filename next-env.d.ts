@@ -3,6 +3,20 @@
 /// <reference types="gtag.js" />
 
 /**
+ * Micra default global definitions
+ */
+declare module Micra {
+  interface Services {
+    'app': import('@micra/application').Application;
+    'config': import('@micra/config').Config;
+    'container': import('@micra/tsyringe-service-container').TSyringeServiceContainer;
+  }
+  interface Config {
+    'app': import('app/types').AppConfig;
+  }
+}
+
+/**
  * Env variables:
  * This defines the available environmental variables
  * accessible through process.env.
@@ -39,22 +53,7 @@ type GADataLayer = any[];
  * resolve registered services.
  */
 declare const use: Use;
-type Use = {
-  (namespace: 'api/graphql-client'): (endpoint: string) => import('graphql-request').GraphQLClient;
-  (namespace: 'logger'): import('app/logger/SentryLogger').SentryLogger;
-  (namespace: 'store/manager'): import('app/store/redux-store-manager').ReduxStoreManager;
-  (namespace: 'store/saga-registry'): import('app/store/redux-saga').SagaRegistry;
-  (namespace: 'store/saga'): import('redux-saga').SagaMiddleware;
-  (namespace: 'theme'): import('app/theme/types').Theme;
-  (namespace: 'translation'): import('i18next').i18n;
-  (namespace: 'tracking/fingerprint'): string;
-  (namespace: 'feature-flags'): import('app/feature-flags/types').FeatureFlags;
-  (namespace: 'storage/session'): import('@micra/storage-wrapper').StorageWrapper;
-  (namespace: 'storage/memory'): import('@micra/storage-wrapper').StorageWrapper;
-  (namespace: 'storage/local'): import('@micra/storage-wrapper').StorageWrapper;
-  (namespace: 'storage/cookie'): import('app/storage/CookieStorage/types').CookieStorage;
-  <T = any>(namespace: any): T;
-};
+type Use = <K extends keyof Micra.Services>(namespace: K) => Micra.Services[K];
 
 /**
  * Config:
@@ -63,17 +62,7 @@ type Use = {
  * registered config for the services.
  */
 declare const config: Config;
-type Config = {
-  (namespace: 'app'): import('app/types').AppConfig;
-  (namespace: 'api'): import('app/api/types').ApiConfig;
-  (namespace: 'logger'): import('app/logger/types').LoggerConfig;
-  (namespace: 'store'): import('app/store/types').StoreConfig;
-  (namespace: 'translation'): import('app/translation/types').TranslationConfig;
-  (namespace: 'feature-flags'): import('app/feature-flags/types').FeatureFlagsConfig;
-  (namespace: 'storage'): import('app/storage/types').StorageConfig;
-  <T = any>(variable: string): T | undefined;
-  <T = any>(variable: string, fallback: T): T;
-};
+type Config = <K extends keyof Micra.Config, R extends Micra.Config[K]>(namespace: K, fallback?: R) => R;
 
 /**
  * Window:
@@ -99,5 +88,6 @@ declare namespace NodeJS {
   interface Global {
     config: Config;
     use: Use;
+    scope: MicraScope;
   }
 }

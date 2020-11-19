@@ -20,7 +20,7 @@ app.config.set<StorageConfig>('storage', {
     optional: [
       '_ga',
       '_gid',
-      `_gat_gtag_${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID.replace(/-/g, '_')}`,
+      `_gat_gtag_${(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING_ID ?? '').replace(/-/g, '_')}`,
     ],
   },
 });
