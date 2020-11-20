@@ -9,7 +9,7 @@ export type ActionCreator<A extends Action> = {
 };
 
 export const createAction = <A extends Action = Action>(type: A['type']) => {
-  const actionCreator = function(payload: A['payload'] = undefined) {
+  function actionCreator(payload: A['payload'] = undefined) {
     return {
       type,
       payload,
@@ -19,4 +19,4 @@ export const createAction = <A extends Action = Action>(type: A['type']) => {
   actionCreator.type = type;
 
   return actionCreator as ActionCreator<A>;
-}
+};

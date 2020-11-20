@@ -26,7 +26,7 @@ export class ReduxStoreManager implements StoreManager {
     this.combinedReducer = combineReducers(this.reducers);
   }
 
-  protected cleanUp(state: any) {
+  protected cleanUp(state: Record<string, unknown>) {
     if (this.keysToRemove.length > 0) {
       state = { ...state };
       const keys = Object.keys(state);
@@ -42,7 +42,7 @@ export class ReduxStoreManager implements StoreManager {
     return this.reducers;
   }
 
-  reduce(state: any, action: Action) {
+  reduce(state: Record<string, unknown>, action: Action) {
     this.cleanUp(state);
     return this.combinedReducer(state, action);
   }

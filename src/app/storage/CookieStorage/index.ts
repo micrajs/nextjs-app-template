@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { cookieEncoder } from 'app/storage/CookieStorage/cookieEncoder';
 import { cookieParser } from 'app/storage/CookieStorage/cookieParser';
 import type {

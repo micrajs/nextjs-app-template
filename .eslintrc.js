@@ -48,6 +48,13 @@ module.exports = {
     'class-methods-use-this': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"]
+    "@typescript-eslint/no-use-before-define": ["error"],
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      },
+    ],
   },
 };

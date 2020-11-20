@@ -1,4 +1,4 @@
-declare module Micra {
+declare namespace Micra {
   interface Services {
     'storage/session': import('@micra/storage-wrapper').StorageWrapper;
     'storage/memory': import('@micra/storage-wrapper').StorageWrapper;
@@ -7,6 +7,6 @@ declare module Micra {
   }
 
   export interface Config {
-    'storage': import('app/storage/types').StorageConfig;
+    storage: import('app/storage/types').StorageConfig;
   }
 }

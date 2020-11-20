@@ -18,7 +18,7 @@ export class SplitIoFeatureFlags implements FeatureFlags {
     TIMEOUT: [],
   };
 
-  constructor(options: SplitIO.IBrowserSettings = config('feature-flags.options')) {
+  constructor(options: SplitIO.IBrowserSettings = config('feature-flags').options) {
     this.options = options;
     this.split = SplitFactory(options);
     this.client = this.split.client();

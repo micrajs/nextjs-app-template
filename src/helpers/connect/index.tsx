@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-export function connect<P = any, CP = any>(
+export function connect<P = unknown, CP = unknown>(
   setup: (props: P) => CP,
   Component: React.ComponentType<CP>,
 ) {

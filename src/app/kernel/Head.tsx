@@ -1,6 +1,5 @@
 import React, { memo, useMemo } from 'react';
 import NextHead from 'next/head';
-import { Router } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import { PageComponentProps } from 'app/kernel/types';
 
@@ -9,16 +8,16 @@ const Head = ({ meta, router }: PageComponentProps) => {
 
   const { title, canonical, description, url, name, cover, robots, type } = useMemo(
     () => ({
-      canonical: config('app.url'),
-      cover: meta?.cover || config('app.coverImage', '/images/cover.png'),
-      robots: meta?.robots || config('app.robots', 'index, follow'),
-      name: t(['app.name', config('app.name')]),
-      url: `${config('app.url')}${router.pathname}`,
-      type: meta?.type ? t(meta.type) : t(['app.type', config('app.type')]),
-      title: `${meta?.title ? `${t(meta.title)} | ` : ''}${t(['app.name', config('app.name')])}`,
+      canonical: config('app').url,
+      cover: meta?.cover || config('app').coverImage || '/images/cover.png',
+      robots: meta?.robots || config('app').robots || 'index, follow',
+      name: t(['app.name', config('app').name]),
+      url: `${config('app').url}${router.pathname}`,
+      type: meta?.type ? t(meta.type) : t(['app.type', config('app').type]),
+      title: `${meta?.title ? `${t(meta.title)} | ` : ''}${t(['app.name', config('app').name])}`,
       description: meta?.description
         ? t(meta.description)
-        : t(['app.description', config('app.description', config('app.name'))]),
+        : t(['app.description', config('app').description || config('app').name]),
     }),
     [meta],
   );
@@ -42,10 +41,10 @@ const Head = ({ meta, router }: PageComponentProps) => {
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={cover} />
       <link rel="manifest" href="/manifest.json" />
-      <meta name = "apple-mobile-web-app-capable" content="yes" />
-      <meta name = "apple-mobile-web-app-status-bar-style" content="black" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black" />
       <link rel="icon" href="favicon.png" />
-      <meta name = "apple-mobile-web-app-title" content={name} />
+      <meta name="apple-mobile-web-app-title" content={name} />
       <link rel="apple-touch-icon" href="/icons/launchericon-512-512.png" />
       <link rel="apple-touch-startup-icon" href="/icons/launchericon-512-512.png" />
       <meta

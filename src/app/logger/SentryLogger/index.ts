@@ -16,7 +16,7 @@ export class SentryLogger implements Logger<NodeOptions, LoggerExtension> {
 
   public sentry: typeof Sentry;
 
-  public config = config<NodeOptions>('logger.options');
+  public config = config('logger').options;
 
   constructor(namespace = '', sentry: typeof Sentry = Sentry) {
     this.sentry = sentry;

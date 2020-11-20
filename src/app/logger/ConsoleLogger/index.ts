@@ -1,14 +1,15 @@
+/* eslint-disable no-console */
 import { Logger } from '@micra/core';
 
 export interface LoggerExtension {
-  addBreadcrumb(breadcrumb: any): void;
-  init(options?: any | undefined): void;
+  addBreadcrumb(breadcrumb: unknown): void;
+  init(options?: unknown | undefined): void;
   critical(...args: string[]): void;
   debug(...args: string[]): void;
   fatal(...args: string[]): void;
 }
 
-export class ConsoleLogger implements Logger<any, LoggerExtension> {
+export class ConsoleLogger implements Logger<unknown, LoggerExtension> {
   public namespace: string;
 
   public config = {};
@@ -25,7 +26,7 @@ export class ConsoleLogger implements Logger<any, LoggerExtension> {
     //
   }
 
-  create(namespace: string): Logger<any, LoggerExtension> {
+  create(namespace: string): Logger<unknown, LoggerExtension> {
     return new ConsoleLogger(namespace);
   }
 

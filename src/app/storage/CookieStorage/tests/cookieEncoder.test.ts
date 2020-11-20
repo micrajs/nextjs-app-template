@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { cookieEncoder } from '../cookieEncoder';
 
 describe('cookieEncoder tests', () => {

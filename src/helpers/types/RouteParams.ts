@@ -19,4 +19,4 @@ export type RouteParams<T extends string> =
   ? { [k in Param]?: string }
   : T extends `${infer _}:${infer Param}`
   ? { [k in Param]: string }
-  : {};
+  : Record<string, unknown>;

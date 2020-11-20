@@ -26,7 +26,7 @@ export class ReduxReducer<S, A extends Action> {
 
   public reducer() {
     return (state: S = this.initialState, action: A): S => {
-      return (this.actionHandlers.has(action.type))
+      return this.actionHandlers.has(action.type)
         ? this.actionHandlers.get(action.type)(state, action)
         : state;
     };

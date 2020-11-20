@@ -5,7 +5,7 @@
 /**
  * Micra default global definitions
  */
-declare module Micra {
+declare namespace Micra {
   interface Services {
     'app': import('@micra/application').Application;
     'config': import('@micra/config').Config;

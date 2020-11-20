@@ -1,9 +1,5 @@
-declare module Micra {
+declare namespace Micra {
   interface Services {
-    'theme': import('app/theme/types').Theme;
-  }
-
-  export interface Config {
-    //
+    theme: import('app/theme/types').Theme;
   }
 }

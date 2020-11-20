@@ -1,4 +1,4 @@
-declare module Micra {
+declare namespace Micra {
   interface Services {
     'store/manager': import('app/store/redux-store-manager').ReduxStoreManager;
     'store/saga-registry': import('app/store/redux-saga').SagaRegistry;
@@ -6,6 +6,6 @@ declare module Micra {
   }
 
   export interface Config {
-    'store': import('app/store/types').StoreConfig;
+    store: import('app/store/types').StoreConfig;
   }
 }

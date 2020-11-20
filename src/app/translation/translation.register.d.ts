@@ -1,9 +1,9 @@
-declare module Micra {
+declare namespace Micra {
   interface Services {
-    'translation': import('i18next').i18n;
+    translation: import('i18next').i18n;
   }
 
   export interface Config {
-    'translation': import('app/translation/types').TranslationConfig;
+    translation: import('app/translation/types').TranslationConfig;
   }
 }

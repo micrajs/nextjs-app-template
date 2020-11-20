@@ -9,7 +9,7 @@ export interface FeatureFlags {
   on(event: FeatureFlagEvent, listener: FlagListener): FeatureFlagEventUnsubscribe;
   off(event: FeatureFlagEvent, listener: FlagListener): void;
   flush(event: FeatureFlagEvent): void;
-  restart<T extends Record<string, any> = Record<string, any>>(options?: T): void;
+  restart<T extends Record<string, unknown> = Record<string, unknown>>(options?: T): void;
   start(): void;
   pause(): void;
 }

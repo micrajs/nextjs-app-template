@@ -21,7 +21,7 @@ const App = ({ Component, pageProps, err, router }: AppProps) => {
 App.getInitialProps = async (appContext: AppContext) => {
   // SSR language selector
   use('translation').changeLanguage(
-    appContext.router.locale ?? config('translation.defaultLanguage'),
+    appContext.router.locale ?? config('translation').defaultLanguage,
   );
 
   // Set server cookie client

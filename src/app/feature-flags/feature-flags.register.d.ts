@@ -1,4 +1,4 @@
-declare module Micra {
+declare namespace Micra {
   interface Services {
     'feature-flags': import('app/feature-flags/types').FeatureFlags;
   }

@@ -42,7 +42,7 @@ export class StorageServiceProvider extends ServiceProvider {
      */
     this.container.value(
       'storage/cookie',
-      new CookieStorageWrapper(getCookieClient(), config('storage.cookies')),
+      new CookieStorageWrapper(getCookieClient(), config('storage').cookies),
     );
 
     /**
@@ -52,7 +52,7 @@ export class StorageServiceProvider extends ServiceProvider {
      * and opt-in cookies.
      */
     if (process.browser) {
-      this.container.value('storage/cookie-guard', new CookieGuard(config('storage.cookies')));
+      this.container.value('storage/cookie-guard', new CookieGuard(config('storage').cookies));
     }
   }
 }

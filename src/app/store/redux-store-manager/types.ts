@@ -1,7 +1,7 @@
 import { Action, Reducer, ReducersMapObject, Store } from 'redux';
 import { StoreConfig } from 'app/store/types';
 
-export interface StoreManager<S = any> {
+export interface StoreManager<S = unknown> {
   store: Store;
   getReducers(): ReducersMapObject;
   add(key: keyof S, reducer: Reducer): this;

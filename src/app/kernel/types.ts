@@ -19,7 +19,7 @@ export interface ErrorComponentProps extends ErrorProps {
   hasGetInitialPropsRun?: boolean;
 }
 
-export type PageComponentProps<T extends Record<string, any> = Record<string, any>> = T & {
+export type PageComponentProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
   err?: Error;
   router: Router;
   meta?: MetaProps;
