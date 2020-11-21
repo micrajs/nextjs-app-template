@@ -77,6 +77,6 @@ app.config.set<AppConfig>('app', {
     TranslationServiceProvider,
     ApiServiceProvider,
     StorageServiceProvider,
-    CacheServiceProvider
+    CacheServiceProvider,
   ],
 });
