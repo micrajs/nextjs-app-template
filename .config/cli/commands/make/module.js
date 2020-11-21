@@ -27,9 +27,10 @@ const MakeHelper = {
       const NAME = variationsOf(RAW_NAME);
       const FILES = [
         // [PATH, TEMPLATE]
-        [app(NAME.LOWERCASE, `config.ts`), template('module.config')],
-        [app(NAME.LOWERCASE, `index.ts`), template('module.index')],
-        [app(NAME.LOWERCASE, `types.ts`), template('module.types')],
+        [app(NAME.KEBAB, `config.ts`), template('module.config')],
+        [app(NAME.KEBAB, `index.ts`), template('module.index')],
+        [app(NAME.KEBAB, `types.ts`), template('module.types')],
+        [app(NAME.KEBAB, `${NAME.KEBAB}.register.d.ts`), template('module.register')],
       ];
 
       // Generate files

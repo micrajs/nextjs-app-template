@@ -1,0 +1,9 @@
+declare namespace Micra {
+  interface Services {
+    // TODO: register services types
+  }
+
+  export interface Config {
+    cache: import('app/{{{ NAME.KEBAB }}}/types').{{{ NAME.CAPITALIZED }}}Config;
+  }
+}

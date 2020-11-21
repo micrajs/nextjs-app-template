@@ -2,6 +2,7 @@ import app from '@micra/application';
 import { Kernel } from '@micra/kernel';
 import { TSyringeServiceContainer } from '@micra/tsyringe-service-container';
 import { ApiServiceProvider } from 'app/api';
+import { CacheServiceProvider } from 'app/cache';
 import { FeatureFlagsServiceProvider } from 'app/feature-flags';
 import { LoggerServiceProvider } from 'app/logger';
 import { StorageServiceProvider } from 'app/storage';
@@ -76,5 +77,6 @@ app.config.set<AppConfig>('app', {
     TranslationServiceProvider,
     ApiServiceProvider,
     StorageServiceProvider,
+    CacheServiceProvider
   ],
 });

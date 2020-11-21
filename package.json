@@ -19,6 +19,7 @@
     "styled-components": "^5"
   },
   "dependencies": {
+    "@brokerloop/ttlcache": "^3.2.3",
     "@fingerprintjs/fingerprintjs": "^3.0.3",
     "@micra/application": "^0.0.8",
     "@micra/core": "^0.0.7",
