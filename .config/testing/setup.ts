@@ -4,8 +4,17 @@
 import '../../next-env.d';
 import '@testing-library/jest-dom/extend-expect';
 import { createNamespace } from 'cls-hooked';
+import { toHaveNoViolations } from 'jest-axe';
 import { app } from '../../src/app/bootstrap';
 
+/**
+ * Jest extension
+ */
+expect.extend(toHaveNoViolations);
+
+/**
+ * Extending global helpers
+ */
 const testScope = createNamespace('test');
 app.container.value('container', app.container);
 

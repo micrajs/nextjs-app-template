@@ -13,6 +13,7 @@ module.exports = {
       tsconfig: 'tsconfig.test.json',
     },
   },
+  runner: 'groups',
   testEnvironment: 'node',
   testRegex: 'src(/tests/|/.*/tests/).*\\.test\\.tsx?$',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],

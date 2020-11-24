@@ -1,6 +1,6 @@
 import app from '@micra/application';
 import { Kernel } from '@micra/kernel';
-import { TSyringeServiceContainer } from '@micra/tsyringe-service-container';
+import { TypeDIServiceContainer } from '@micra/typedi-service-container';
 import { ApiServiceProvider } from 'app/api';
 import { CacheServiceProvider } from 'app/cache';
 import { FeatureFlagsServiceProvider } from 'app/feature-flags';
@@ -63,7 +63,7 @@ app.config.set<AppConfig>('app', {
   /**
    * Service container class to be used.
    */
-  container: TSyringeServiceContainer,
+  container: TypeDIServiceContainer,
 
   /**
    * Service providers
