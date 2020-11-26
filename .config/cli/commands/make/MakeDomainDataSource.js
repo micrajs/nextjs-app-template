@@ -1,5 +1,5 @@
-const MakeDataSource = {
-  command: 'make:data-source',
+const MakeDomainDataSource = {
+  command: 'make:domain-data-source',
   description: 'Generate a new domain data source',
   arguments: [
     {
@@ -25,9 +25,9 @@ const MakeDataSource = {
     try {
       const { domains } = use('paths/helpers');
       // Params
-      const RAW_DOMAIN = parser.getArgument(0)?.value;
-      const RAW_NAME = parser.getArgument(1)?.value;
-      const FORCE = parser.getOption('force')?.value;
+      const RAW_DOMAIN = parser.getArgument(0).value;
+      const RAW_NAME = parser.getArgument(1).value;
+      const FORCE = parser.getOption('force').value;
 
       // Definition
       const DOMAIN = variationsOf(RAW_DOMAIN);
@@ -76,4 +76,4 @@ const MakeDataSource = {
   },
 };
 
-module.exports = MakeDataSource;
+module.exports = MakeDomainDataSource;

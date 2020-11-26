@@ -1,15 +1,10 @@
-const MakePage = {
-  command: 'make:page',
-  description: 'Generate a new page',
+const MakeHelper = {
+  command: 'make:helper',
+  description: 'Generate a new helper',
   arguments: [
     {
       name: 'name',
-      description: 'Page name.',
-      required: true,
-    },
-    {
-      name: 'pathname',
-      description: 'Page pathname.',
+      description: 'Helper name.',
       required: true,
     },
   ],
@@ -23,22 +18,16 @@ const MakePage = {
   ],
   async handler({ createFile, parser, template, variationsOf, defaultVariables }) {
     try {
-      const { pages, routes } = use('paths/helpers');
+      const { helpers } = use('paths/helpers');
       // Params
-      const RAW_NAME = parser.getArgument(0)?.value;
-      const PATHNAME = parser.getArgument(1)?.value;
-      const FORCE = parser.getOption('force')?.value;
+      const RAW_NAME = parser.getArgument(0).value;
+      const FORCE = parser.getOption('force').value;
 
       // Definition
       const NAME = variationsOf(RAW_NAME);
-      const CAPITALIZED = NAME.CAPITALIZED;
       const FILES = [
         // [PATH, TEMPLATE]
-        [routes(CAPITALIZED, `${CAPITALIZED}Page.tsx`), template('page.component')],
-        [routes(CAPITALIZED, `index.ts`), template('page.index')],
-        [routes(CAPITALIZED, `use${CAPITALIZED}Page.ts`), template('page.setup-hook')],
-        [routes(CAPITALIZED, `types.ts`), template('page.types')],
-        [pages(PATHNAME, `index.ts`), template('page.definition')],
+        [helpers(NAME.RAW, `index.ts`), template('helper.index')],
       ];
 
       // Generate files
@@ -64,4 +53,4 @@ const MakePage = {
   },
 };
 
-module.exports = MakePage;
+module.exports = MakeHelper;

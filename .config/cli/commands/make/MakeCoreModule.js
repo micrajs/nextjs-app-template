@@ -1,10 +1,10 @@
-const MakeServiceProvider = {
-  command: 'make:service-provider',
-  description: 'Generate a new domain interface',
+const MakeCoreModule = {
+  command: 'make:core-module',
+  description: 'Generate a new core module',
   arguments: [
     {
-      name: 'domain',
-      description: 'Domain name.',
+      name: 'name',
+      description: 'Module name.',
       required: true,
     },
   ],
@@ -18,19 +18,19 @@ const MakeServiceProvider = {
   ],
   async handler({ createFile, parser, template, variationsOf, defaultVariables }) {
     try {
-      const { domains } = use('paths/helpers');
+      const { app } = use('paths/helpers');
       // Params
-      const RAW_DOMAIN = parser.getArgument(0)?.value;
-      const FORCE = parser.getOption('force')?.value;
+      const RAW_NAME = parser.getArgument(0).value;
+      const FORCE = parser.getOption('force').value;
 
       // Definition
-      const DOMAIN = variationsOf(RAW_DOMAIN);
+      const NAME = variationsOf(RAW_NAME);
       const FILES = [
         // [PATH, TEMPLATE]
-        [
-          domains(DOMAIN.SINGULAR.KEBAB, `data/index.ts`),
-          template('domains.data.service-provider'),
-        ],
+        [app(NAME.KEBAB, `config.ts`), template('module.config')],
+        [app(NAME.KEBAB, `index.ts`), template('module.index')],
+        [app(NAME.KEBAB, `types.ts`), template('module.types')],
+        [app(NAME.KEBAB, `${NAME.KEBAB}.register.d.ts`), template('module.register')],
       ];
 
       // Generate files
@@ -39,9 +39,7 @@ const MakeServiceProvider = {
           path,
           use('TemplateEngine').render(
             template,
-            defaultVariables({
-              DOMAIN,
-            }),
+            defaultVariables({ NAME }),
           ),
           FORCE,
         );
@@ -58,4 +56,4 @@ const MakeServiceProvider = {
   },
 };
 
-module.exports = MakeServiceProvider;
+module.exports = MakeCoreModule;

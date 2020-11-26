@@ -1,5 +1,5 @@
 import { SplitFactory } from '@splitsoftware/splitio';
-import { deepMerge } from 'helpers/deepMerge';
+import { deepMerge } from 'helpers/deep-merge';
 import type { FeatureFlagEvent, FeatureFlags, FlagListener } from 'app/feature-flags/types';
 
 export class SplitIoFeatureFlags implements FeatureFlags {
@@ -81,7 +81,7 @@ export class SplitIoFeatureFlags implements FeatureFlags {
     options: T = {} as T,
   ) {
     this.pause();
-    this.split = SplitFactory(deepMerge(this.options, options));
+    this.split = SplitFactory(deepMerge(this.options, options) as SplitIO.IBrowserSettings);
     this.client = this.split.client();
     this.start();
   }

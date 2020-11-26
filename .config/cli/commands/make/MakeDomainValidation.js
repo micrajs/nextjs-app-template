@@ -1,8 +1,8 @@
 const { existsSync } = require('fs');
 
-const MakeFactory = {
-  command: 'make:factory',
-  description: 'Generate a new domain factory',
+const MakeDomainValidation = {
+  command: 'make:domain-validation',
+  description: 'Generate a new domain validation',
   arguments: [
     {
       name: 'domain',
@@ -22,29 +22,41 @@ const MakeFactory = {
       description: 'Should overwrite file if it exists',
       default: false,
     },
+    {
+      name: 'factory',
+      alias: 'fac',
+      description: 'Should create a factory',
+      default: false,
+    },
   ],
-  async handler({ createFile, parser, template, variationsOf, defaultVariables }) {
+  async handler({ createFile, parser, template, variationsOf, defaultVariables, exit }) {
     try {
       const { domains } = use('paths/helpers');
       // Params
-      const RAW_DOMAIN = parser.getArgument(0)?.value;
-      const RAW_NAME = parser.getArgument(1)?.value;
-      const FORCE = parser.getOption('force')?.value;
+      const RAW_DOMAIN = parser.getArgument(0).value;
+      const RAW_NAME = parser.getArgument(1).value;
+      const FORCE = parser.getOption('force').value;
+      const FACTORY = parser.getOption('factory').value;
 
       // Definition
       const DOMAIN = variationsOf(RAW_DOMAIN);
       const NAME = variationsOf(RAW_NAME);
       const PATH_TO_INTERFACE = domains(DOMAIN.SINGULAR.KEBAB, `types/common/${NAME.PASCAL}.ts`);
+      const PATH_TO_FACTORY = domains(DOMAIN.SINGULAR.KEBAB, `testing/factories/${NAME.PASCAL}Factory.ts`);
       const FILES = [
         // [PATH, TEMPLATE]
         [
-          domains(DOMAIN.SINGULAR.KEBAB, `testing/factories/${NAME.PASCAL}Factory.ts`),
-          template('domains.testing.factory'),
+          domains(DOMAIN.SINGULAR.KEBAB, `data/validations/validate${NAME.PASCAL}.ts`),
+          template('domains.data.validation'),
         ],
       ];
 
       if (!existsSync(PATH_TO_INTERFACE)) {
         FILES.push([PATH_TO_INTERFACE, template('domains.types.interface')]);
+      }
+
+      if (FACTORY && !existsSync(PATH_TO_FACTORY)) {
+        FILES.push([PATH_TO_FACTORY, template('domains.testing.factory')]);
       }
 
       // Generate files
@@ -73,4 +85,4 @@ const MakeFactory = {
   },
 };
 
-module.exports = MakeFactory;
+module.exports = MakeDomainValidation;

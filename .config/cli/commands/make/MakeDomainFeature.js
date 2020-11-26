@@ -1,6 +1,6 @@
-const MakePage = {
-  command: 'make:component',
-  description: 'Generate a new domain component',
+const MakeDomainFeature = {
+  command: 'make:domain-feature',
+  description: 'Generate a new domain feature',
   arguments: [
     {
       name: 'domain',
@@ -8,8 +8,8 @@ const MakePage = {
       required: true,
     },
     {
-      name: 'component',
-      description: 'Component name.',
+      name: 'feature',
+      description: 'Feature name.',
       required: true,
     },
   ],
@@ -21,13 +21,13 @@ const MakePage = {
       default: false,
     },
   ],
-  async handler({ createFile, parser, template, variationsOf, defaultVariables, exit }) {
+  async handler({ createFile, parser, template, variationsOf, defaultVariables }) {
     try {
       const { domains } = use('paths/helpers');
       // Params
-      const RAW_DOMAIN = parser.getArgument(0)?.value;
-      const RAW_COMPONENT = parser.getArgument(1)?.value;
-      const FORCE = parser.getOption('force')?.value;
+      const RAW_DOMAIN = parser.getArgument(0).value;
+      const RAW_COMPONENT = parser.getArgument(1).value;
+      const FORCE = parser.getOption('force').value;
 
       // Definition
       const DOMAIN = variationsOf(RAW_DOMAIN);
@@ -37,7 +37,7 @@ const MakePage = {
         [
           domains(
             DOMAIN.SINGULAR.LOWERCASE,
-            `experience/components/${COMPONENT.PASCAL}/index.tsx`,
+            `experience/components/${COMPONENT.PASCAL}/${COMPONENT.PASCAL}.tsx`,
           ),
           template('domains.experience.component'),
         ],
@@ -54,6 +54,20 @@ const MakePage = {
             `experience/components/${COMPONENT.PASCAL}/types.ts`,
           ),
           template('domains.experience.types'),
+        ],
+        [
+          domains(
+            DOMAIN.SINGULAR.LOWERCASE,
+            `experience/components/${COMPONENT.PASCAL}/use${COMPONENT.PASCAL}.ts`,
+          ),
+          template('domains.experience.setup-hook'),
+        ],
+        [
+          domains(
+            DOMAIN.SINGULAR.LOWERCASE,
+            `experience/components/${COMPONENT.PASCAL}/index.ts`,
+          ),
+          template('domains.experience.feature'),
         ],
       ];
 
@@ -83,4 +97,4 @@ const MakePage = {
   },
 };
 
-module.exports = MakePage;
+module.exports = MakeDomainFeature;

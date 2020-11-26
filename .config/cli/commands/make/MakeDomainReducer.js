@@ -1,7 +1,7 @@
 const { existsSync } = require('fs');
 
-const MakeReducer = {
-  command: 'make:reducer',
+const MakeDomainReducer = {
+  command: 'make:domain-reducer',
   description: 'Generate a new domain reducer',
   arguments: [
     {
@@ -27,9 +27,9 @@ const MakeReducer = {
     try {
       const { domains } = use('paths/helpers');
       // Params
-      const RAW_DOMAIN = parser.getArgument(0)?.value;
-      const RAW_NAME = parser.getArgument(1)?.value;
-      const FORCE = parser.getOption('force')?.value;
+      const RAW_DOMAIN = parser.getArgument(0).value;
+      const RAW_NAME = parser.getArgument(1).value;
+      const FORCE = parser.getOption('force').value;
 
       // Definition
       const DOMAIN = variationsOf(RAW_DOMAIN);
@@ -127,4 +127,4 @@ const MakeReducer = {
   },
 };
 
-module.exports = MakeReducer;
+module.exports = MakeDomainReducer;

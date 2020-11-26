@@ -1,7 +1,5 @@
-const { existsSync } = require('fs');
-
-const MakeInterface = {
-  command: 'make:interface',
+const MakeDomainInterface = {
+  command: 'make:domain-interface',
   description: 'Generate a new domain interface',
   arguments: [
     {
@@ -33,10 +31,10 @@ const MakeInterface = {
     try {
       const { domains } = use('paths/helpers');
       // Params
-      const RAW_DOMAIN = parser.getArgument(0)?.value;
-      const RAW_NAME = parser.getArgument(1)?.value;
-      const FORCE = parser.getOption('force')?.value;
-      const RAW_DIR = parser.getOption('directory')?.value;
+      const RAW_DOMAIN = parser.getArgument(0).value;
+      const RAW_NAME = parser.getArgument(1).value;
+      const FORCE = parser.getOption('force').value;
+      const RAW_DIR = parser.getOption('directory').value;
 
       // Definition
       const DOMAIN = variationsOf(RAW_DOMAIN);
@@ -77,4 +75,4 @@ const MakeInterface = {
   },
 };
 
-module.exports = MakeInterface;
+module.exports = MakeDomainInterface;

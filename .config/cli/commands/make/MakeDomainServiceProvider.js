@@ -1,10 +1,10 @@
-const MakeHelper = {
-  command: 'make:helper',
-  description: 'Generate a new helper',
+const MakeDomainServiceProvider = {
+  command: 'make:domain-service-provider',
+  description: 'Generate a new domain interface',
   arguments: [
     {
-      name: 'name',
-      description: 'Helper name.',
+      name: 'domain',
+      description: 'Domain name.',
       required: true,
     },
   ],
@@ -18,16 +18,19 @@ const MakeHelper = {
   ],
   async handler({ createFile, parser, template, variationsOf, defaultVariables }) {
     try {
-      const { helpers } = use('paths/helpers');
+      const { domains } = use('paths/helpers');
       // Params
-      const RAW_NAME = parser.getArgument(0)?.value;
-      const FORCE = parser.getOption('force')?.value;
+      const RAW_DOMAIN = parser.getArgument(0).value;
+      const FORCE = parser.getOption('force').value;
 
       // Definition
-      const NAME = variationsOf(RAW_NAME);
+      const DOMAIN = variationsOf(RAW_DOMAIN);
       const FILES = [
         // [PATH, TEMPLATE]
-        [helpers(NAME.RAW, `index.ts`), template('helper.index')],
+        [
+          domains(DOMAIN.SINGULAR.KEBAB, `data/index.ts`),
+          template('domains.data.service-provider'),
+        ],
       ];
 
       // Generate files
@@ -36,7 +39,9 @@ const MakeHelper = {
           path,
           use('TemplateEngine').render(
             template,
-            defaultVariables({ NAME }),
+            defaultVariables({
+              DOMAIN,
+            }),
           ),
           FORCE,
         );
@@ -53,4 +58,4 @@ const MakeHelper = {
   },
 };
 
-module.exports = MakeHelper;
+module.exports = MakeDomainServiceProvider;

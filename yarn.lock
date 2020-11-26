@@ -1289,6 +1289,15 @@
     "@micra/multi-env" "^0.0.2"
     tslib "^2.0.0"
 
+"@micra/application@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@micra/application/-/application-0.0.9.tgz#6c382563920034954cf75c7de8293da85b64732e"
+  integrity sha512-wQ31Y6vFwL8c7RIvZyRVO2ImoM8JvS1RIv+CbSLgamlZ8Vug19P6jVtVMGniR9JELVRG1s1JSrzNa9ObjrfUXA==
+  dependencies:
+    "@micra/config" "^0.0.5"
+    "@micra/multi-env" "^0.0.2"
+    tslib "^2.0.3"
+
 "@micra/assistant-core@^0.0.5":
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/@micra/assistant-core/-/assistant-core-0.0.5.tgz#4c936633d3bd35fba37a7afedc4126efc0d85a84"
@@ -1394,6 +1403,13 @@
   integrity sha512-xP0mnWwa3OKAGYxtV5dyaFpS0ie77PEZO3tWqhTBXl5cKSGhxcv8/jo6va6uXvrACvip9XMx7Jq/hw0vVCJTNQ==
   dependencies:
     tslib "^2.0.0"
+
+"@micra/core@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@micra/core/-/core-0.0.8.tgz#b36825074f59c9031619e27e372a7497eda14c6c"
+  integrity sha512-NSo0T88tMjganuDYk7ig5GoE1Oz79QrPreUGbun3VWp3p24bGAgDNdObrhZ+ijLTkvc8A8lv3caYBLTTxST/fA==
+  dependencies:
+    tslib "^2.0.1"
 
 "@micra/dot-env@^0.0.2":
   version "0.0.2"
@@ -9030,7 +9046,7 @@ tapable@^1.0.0, tapable@^1.1.3:
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-1.1.3.tgz#a1fccc06b58db61fd7a45da2da44f5f3a3e67ba2"
   integrity sha512-4WK/bYZmj8xLr+HUCODHGF1ZFzsYffasLUgEiMBY4fgtltdO6B4WJtlSbPaDTLpYTcGVwM2qLnFTICEcNxs3kA==
 
-tapable@^2.0.0:
+tapable@^2.0.0, tapable@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.1.1.tgz#b01cc1902d42a7bb30514e320ce21c456f72fd3f"
   integrity sha512-Wib1S8m2wdpLbmQz0RBEVosIyvb/ykfKXf3ZIDqvWoMg/zTNm6G/tDSuUM61J1kNCDXWJrLHGSFeMhAG+gAGpQ==
@@ -9750,10 +9766,10 @@ webpack@4.44.1:
     watchpack "^1.7.4"
     webpack-sources "^1.4.1"
 
-webpack@^5.6.0:
-  version "5.6.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.6.0.tgz#282d10434c403b070ed91d459b385e873b51a07d"
-  integrity sha512-SIeFuBhuheKElRbd84O35UhKc0nxlgSwtzm2ksZ0BVhRJqxVJxEguT/pYhfiR0le/pxTa1VsCp7EOYyTsa6XOA==
+webpack@^5.8.0:
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.8.0.tgz#65f00a181708279ff982c2d7338e1dd5505364c4"
+  integrity sha512-X2yosPiHip3L0TE+ylruzrOqSgEgsdGyBOGFWKYChcwlKChaw9VodZIUovG1oo7s0ss6e3ZxBMn9tXR+nkPThA==
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.45"
@@ -9775,7 +9791,7 @@ webpack@^5.6.0:
     neo-async "^2.6.2"
     pkg-dir "^4.2.0"
     schema-utils "^3.0.0"
-    tapable "^2.0.0"
+    tapable "^2.1.1"
     terser-webpack-plugin "^5.0.3"
     watchpack "^2.0.0"
     webpack-sources "^2.1.1"

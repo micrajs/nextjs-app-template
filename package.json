@@ -21,8 +21,8 @@
   "dependencies": {
     "@brokerloop/ttlcache": "^3.2.3",
     "@fingerprintjs/fingerprintjs": "^3.0.3",
-    "@micra/application": "^0.0.8",
-    "@micra/core": "^0.0.7",
+    "@micra/application": "^0.0.9",
+    "@micra/core": "^0.0.8",
     "@micra/in-memory-storage": "^0.0.2",
     "@micra/kernel": "^0.0.3",
     "@micra/service-provider": "^0.0.2",
@@ -97,6 +97,6 @@
     "ts-jest": "^26.4.4",
     "ts-node": "^9.0.0",
     "typescript": "^4.1.2",
-    "webpack": "^5.6.0"
+    "webpack": "^5.8.0"
   }
 }

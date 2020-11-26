@@ -1,10 +1,15 @@
-const MakeHelper = {
-  command: 'make:module',
-  description: 'Generate a new core module',
+const MakePage = {
+  command: 'make:page',
+  description: 'Generate a new page',
   arguments: [
     {
       name: 'name',
-      description: 'Module name.',
+      description: 'Page name.',
+      required: true,
+    },
+    {
+      name: 'pathname',
+      description: 'Page pathname.',
       required: true,
     },
   ],
@@ -18,19 +23,22 @@ const MakeHelper = {
   ],
   async handler({ createFile, parser, template, variationsOf, defaultVariables }) {
     try {
-      const { app } = use('paths/helpers');
+      const { pages, routes } = use('paths/helpers');
       // Params
-      const RAW_NAME = parser.getArgument(0)?.value;
-      const FORCE = parser.getOption('force')?.value;
+      const RAW_NAME = parser.getArgument(0).value;
+      const PATHNAME = parser.getArgument(1).value;
+      const FORCE = parser.getOption('force').value;
 
       // Definition
       const NAME = variationsOf(RAW_NAME);
+      const CAPITALIZED = NAME.CAPITALIZED;
       const FILES = [
         // [PATH, TEMPLATE]
-        [app(NAME.KEBAB, `config.ts`), template('module.config')],
-        [app(NAME.KEBAB, `index.ts`), template('module.index')],
-        [app(NAME.KEBAB, `types.ts`), template('module.types')],
-        [app(NAME.KEBAB, `${NAME.KEBAB}.register.d.ts`), template('module.register')],
+        [routes(CAPITALIZED, `${CAPITALIZED}Page.tsx`), template('page.component')],
+        [routes(CAPITALIZED, `index.ts`), template('page.index')],
+        [routes(CAPITALIZED, `use${CAPITALIZED}Page.ts`), template('page.setup-hook')],
+        [routes(CAPITALIZED, `types.ts`), template('page.types')],
+        [pages(PATHNAME, `index.ts`), template('page.definition')],
       ];
 
       // Generate files
@@ -56,4 +64,4 @@ const MakeHelper = {
   },
 };
 
-module.exports = MakeHelper;
+module.exports = MakePage;

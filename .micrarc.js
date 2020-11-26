@@ -3,19 +3,20 @@ const { join } = require('path');
 module.exports = {
   providers: [require('./.config/cli/service-providers/PathsServiceProvider')],
   commands: [
-    require('./.config/cli/commands/make/module'),
-    require('./.config/cli/commands/make/helper'),
-    require('./.config/cli/commands/make/page'),
-    require('./.config/cli/commands/make/component'),
-    require('./.config/cli/commands/make/feature'),
-    require('./.config/cli/commands/make/data-source'),
-    require('./.config/cli/commands/make/service'),
-    require('./.config/cli/commands/make/factory'),
-    require('./.config/cli/commands/make/validation'),
-    require('./.config/cli/commands/make/action'),
-    require('./.config/cli/commands/make/interface'),
-    require('./.config/cli/commands/make/reducer'),
-    require('./.config/cli/commands/make/service-provider'),
+    require('./.config/cli/commands/make/MakeCoreModule'),
+    require('./.config/cli/commands/make/MakeDomainAction'),
+    require('./.config/cli/commands/make/MakeDomainComponent'),
+    require('./.config/cli/commands/make/MakeDomainDataSource'),
+    require('./.config/cli/commands/make/MakeDomainFactory'),
+    require('./.config/cli/commands/make/MakeDomainFeature'),
+    require('./.config/cli/commands/make/MakeDomainInterface'),
+    require('./.config/cli/commands/make/MakeDomainReducer'),
+    require('./.config/cli/commands/make/MakeDomainRegister'),
+    require('./.config/cli/commands/make/MakeDomainService'),
+    require('./.config/cli/commands/make/MakeDomainServiceProvider'),
+    require('./.config/cli/commands/make/MakeDomainValidation'),
+    require('./.config/cli/commands/make/MakeHelper'),
+    require('./.config/cli/commands/make/MakePage'),
   ],
   template: {
     domains: {
@@ -31,6 +32,7 @@ module.exports = {
       },
       data: {
         'data-source': join(__dirname, './.config/cli/templates/domains/data/data-source.mustache'),
+        'registerD': join(__dirname, './.config/cli/templates/domains/data/registerD.mustache'),
         'service-provider': join(
           __dirname,
           './.config/cli/templates/domains/data/service-provider.mustache',

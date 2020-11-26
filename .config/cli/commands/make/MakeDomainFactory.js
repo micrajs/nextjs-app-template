@@ -1,6 +1,8 @@
-const MakeAction = {
-  command: 'make:action',
-  description: 'Generate a new domain action',
+const { existsSync } = require('fs');
+
+const MakeDomainFactory = {
+  command: 'make:domain-factory',
+  description: 'Generate a new domain factory',
   arguments: [
     {
       name: 'domain',
@@ -8,8 +10,8 @@ const MakeAction = {
       required: true,
     },
     {
-      name: 'action',
-      description: 'Action name.',
+      name: 'interface',
+      description: 'Interface name.',
       required: true,
     },
   ],
@@ -25,30 +27,25 @@ const MakeAction = {
     try {
       const { domains } = use('paths/helpers');
       // Params
-      const RAW_DOMAIN = parser.getArgument(0)?.value;
-      const RAW_NAME = parser.getArgument(1)?.value;
-      const FORCE = parser.getOption('force')?.value;
+      const RAW_DOMAIN = parser.getArgument(0).value;
+      const RAW_NAME = parser.getArgument(1).value;
+      const FORCE = parser.getOption('force').value;
 
       // Definition
       const DOMAIN = variationsOf(RAW_DOMAIN);
       const NAME = variationsOf(RAW_NAME);
+      const PATH_TO_INTERFACE = domains(DOMAIN.SINGULAR.KEBAB, `types/common/${NAME.PASCAL}.ts`);
       const FILES = [
         // [PATH, TEMPLATE]
         [
-          domains(
-            DOMAIN.SINGULAR.KEBAB,
-            `data/actions/${NAME.CAMEL}.ts`,
-          ),
-          template('domains.data.action'),
-        ],
-        [
-          domains(
-            DOMAIN.SINGULAR.KEBAB,
-            `types/actions/${NAME.PASCAL}Action.ts`,
-          ),
-          template('domains.types.action'),
+          domains(DOMAIN.SINGULAR.KEBAB, `testing/factories/${NAME.PASCAL}Factory.ts`),
+          template('domains.testing.factory'),
         ],
       ];
+
+      if (!existsSync(PATH_TO_INTERFACE)) {
+        FILES.push([PATH_TO_INTERFACE, template('domains.types.interface')]);
+      }
 
       // Generate files
       FILES.forEach(([path, template]) => {
@@ -76,4 +73,4 @@ const MakeAction = {
   },
 };
 
-module.exports = MakeAction;
+module.exports = MakeDomainFactory;
