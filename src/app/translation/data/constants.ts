@@ -1,6 +1,6 @@
 import type { Language } from 'app/translation/types';
-import commonEn from 'app/translation/languages/en/common';
-import commonFr from 'app/translation/languages/fr/common';
+import commonEn from 'app/translation/data/languages/en/common';
+import commonFr from 'app/translation/data/languages/fr/common';
 
 /**
  * Default language

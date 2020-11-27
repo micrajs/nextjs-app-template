@@ -1,7 +1,7 @@
 import React, { memo, StrictMode } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Provider as ReduxProvider } from 'react-redux';
-import TranslationProvider from 'app/translation/TranslationProvider';
+import TranslationProvider from 'app/translation/experience/TranslationProvider';
 import type { ProvidersProps } from 'app/kernel/types';
 
 const Providers = ({ children }: ProvidersProps) => (
