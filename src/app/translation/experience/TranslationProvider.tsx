@@ -5,8 +5,6 @@ interface TranslationProviderProps {
   children?: React.ReactNode;
 }
 
-const TranslationProvider = ({ children }: TranslationProviderProps) => {
-  return <I18nextProvider i18n={use('translation')}>{children}</I18nextProvider>;
-};
-
-export default TranslationProvider;
+export const TranslationProvider = ({ children }: TranslationProviderProps) => (
+  <I18nextProvider i18n={use('translation')}>{children}</I18nextProvider>
+);
