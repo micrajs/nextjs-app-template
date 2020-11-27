@@ -3,12 +3,10 @@ import { Kernel } from '@micra/kernel';
 import { TypeDIServiceContainer } from '@micra/typedi-service-container';
 import { ApiServiceProvider } from 'app/api';
 import { CacheServiceProvider } from 'app/cache';
-import { FeatureFlagsServiceProvider } from 'app/feature-flags';
 import { LoggerServiceProvider } from 'app/logger';
 import { StorageServiceProvider } from 'app/storage';
 import { StoreServiceProvider } from 'app/store';
 import { ThemeServiceProvider } from 'app/theme';
-import { TrackingServiceProvider } from 'app/tracking';
 import { TranslationServiceProvider } from 'app/translation';
 import type { AppConfig } from 'app/types';
 
@@ -69,8 +67,6 @@ app.config.set<AppConfig>('app', {
    * Service providers
    */
   services: [
-    FeatureFlagsServiceProvider,
-    TrackingServiceProvider,
     LoggerServiceProvider,
     StoreServiceProvider,
     ThemeServiceProvider,
