@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
-import { cookieEncoder } from 'app/storage/CookieStorage/cookieEncoder';
-import { cookieParser } from 'app/storage/CookieStorage/cookieParser';
+import { cookieEncoder } from 'app/storage/data/CookieStorage/cookieEncoder';
+import { cookieParser } from 'app/storage/data/CookieStorage/cookieParser';
 import type {
   Cookie,
   CookieStorage,
   CookieOptions,
   CookieClient,
-} from 'app/storage/CookieStorage/types';
+} from 'app/storage/data/CookieStorage/types';
 import type { CookieGuardConfig } from 'app/storage/types';
 
 /**

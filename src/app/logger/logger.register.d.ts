@@ -1,6 +1,6 @@
 declare namespace Micra {
   interface Services {
-    logger: import('app/logger/SentryLogger').SentryLogger;
+    logger: import('app/logger/data/SentryLogger').SentryLogger;
   }
 
   export interface Config {

@@ -5,7 +5,7 @@ import Providers from 'app/kernel/Providers';
 import { withRedux } from 'helpers/withRedux';
 import type { AppProps } from 'app/kernel/types';
 import { usePageViewTracker } from 'app/tracking/data/helpers/usePageViewTracker';
-import { getCookieClient } from 'app/storage/CookieStorage/helpers/getCookieClient';
+import { getCookieClient } from 'app/storage/data/CookieStorage/helpers/getCookieClient';
 
 const App = ({ Component, pageProps, err, router }: AppProps) => {
   usePageViewTracker();

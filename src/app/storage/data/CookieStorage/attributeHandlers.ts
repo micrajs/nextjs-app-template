@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-globals */
-import { SAME_SITE_VALUES } from 'app/storage/CookieStorage/constants';
-import type { Cookie, CookieAttributeHandler } from 'app/storage/CookieStorage/types';
+import { SAME_SITE_VALUES } from 'app/storage/data/CookieStorage/constants';
+import type { Cookie, CookieAttributeHandler } from 'app/storage/data/CookieStorage/types';
 
 export const attributeHandlers: CookieAttributeHandler[] = [
   {

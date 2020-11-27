@@ -3,7 +3,7 @@ declare namespace Micra {
     'storage/session': import('@micra/storage-wrapper').StorageWrapper;
     'storage/memory': import('@micra/storage-wrapper').StorageWrapper;
     'storage/local': import('@micra/storage-wrapper').StorageWrapper;
-    'storage/cookie': import('app/storage/CookieStorage/types').CookieStorage;
+    'storage/cookie': import('app/storage/data/CookieStorage/types').CookieStorage;
   }
 
   export interface Config {

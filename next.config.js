@@ -48,14 +48,10 @@ let config = {
 
     return config;
   },
-};
-
-if (process.env === 'production') {
-  config.pwa = {
+  pwa: {
     dest: 'public',
     disable: process.env.NODE_ENV !== 'production',
-  };
-  config = withPWA(config);
-}
+  },
+};
 
-module.exports = withSourceMaps(config);
+module.exports = withSourceMaps(withPWA(config));

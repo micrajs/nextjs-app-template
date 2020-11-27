@@ -1,6 +1,6 @@
 /* eslint-disable no-continue */
-import { attributeHandlers } from 'app/storage/CookieStorage/attributeHandlers';
-import type { Cookie } from 'app/storage/CookieStorage/types';
+import { attributeHandlers } from 'app/storage/data/CookieStorage/attributeHandlers';
+import type { Cookie } from 'app/storage/data/CookieStorage/types';
 
 export const cookieParser = (definition: string): Cookie[] => {
   const cookies: Cookie[] = [];

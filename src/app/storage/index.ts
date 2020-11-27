@@ -1,9 +1,9 @@
-import { StorageWrapper } from '@micra/storage-wrapper';
-import { ServiceProvider } from '@micra/service-provider';
 import { InMemoryStorage } from '@micra/in-memory-storage';
-import { CookieStorageWrapper } from 'app/storage/CookieStorage';
-import { getCookieClient } from 'app/storage/CookieStorage/helpers/getCookieClient';
-import { CookieGuard } from './CookieGuard';
+import { ServiceProvider } from '@micra/service-provider';
+import { StorageWrapper } from '@micra/storage-wrapper';
+import { CookieGuard } from 'app/storage/data/CookieGuard';
+import { CookieStorageWrapper } from 'app/storage/data/CookieStorage';
+import { getCookieClient } from 'app/storage/data/CookieStorage/helpers/getCookieClient';
 
 export class StorageServiceProvider extends ServiceProvider {
   register() {

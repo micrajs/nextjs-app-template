@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
-import { Cookie } from 'app/storage/CookieStorage/types';
-import { SAME_SITE_VALUES } from 'app/storage/CookieStorage/constants';
-import { charValidation } from 'app/storage/CookieStorage/helpers/charValidation';
+import { Cookie } from 'app/storage/data/CookieStorage/types';
+import { SAME_SITE_VALUES } from 'app/storage/data/CookieStorage/constants';
+import { charValidation } from 'app/storage/data/CookieStorage/helpers/charValidation';
 
 export const cookieEncoder = (cookie: Cookie): string => {
   if (!charValidation.test(cookie.name)) {

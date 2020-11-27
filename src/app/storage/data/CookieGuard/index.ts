@@ -5,7 +5,7 @@
 /* eslint-disable prefer-rest-params */
 /* eslint-disable consistent-return */
 import { CookieGuardConfig } from 'app/storage/types';
-import { cookieParser } from 'app/storage/CookieStorage/cookieParser';
+import { cookieParser } from 'app/storage/data/CookieStorage/cookieParser';
 
 /**
  * SAFE_OBJECT

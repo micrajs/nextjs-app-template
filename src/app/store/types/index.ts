@@ -5,5 +5,3 @@ export interface StoreConfig<S = Record<string, unknown>> {
   reducers: ReducersMapObject;
   initialState: S;
 }
-
-export type ID = number;

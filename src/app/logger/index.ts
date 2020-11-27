@@ -1,6 +1,6 @@
 import { ServiceProvider } from '@micra/service-provider';
-import { SentryLogger } from 'app/logger/SentryLogger';
-import { ConsoleLogger } from 'app/logger/ConsoleLogger';
+import { SentryLogger } from 'app/logger/data/SentryLogger';
+import { ConsoleLogger } from 'app/logger/data/ConsoleLogger';
 
 export class LoggerServiceProvider extends ServiceProvider {
   register() {
