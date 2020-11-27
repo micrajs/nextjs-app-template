@@ -10,7 +10,7 @@ import {
 } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import { StoreConfig } from 'app/store/types';
-import { StoreManager } from 'app/store/redux-store-manager/types';
+import { StoreManager } from 'app/store/data/helpers/redux-store-manager/types';
 
 export class ReduxStoreManager implements StoreManager {
   public store!: Store;
