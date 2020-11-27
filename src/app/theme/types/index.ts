@@ -1,5 +1,7 @@
 export interface Theme {
-  dummy: void;
+  colors: {
+    blue: string
+  }
 }
 
 export interface StyledProps {
