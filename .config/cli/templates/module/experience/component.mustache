@@ -1,0 +1,27 @@
+import React from 'react';
+import { classNames } from 'helpers/classNames';
+import { {{{ COMPONENT.PASCAL }}}Wrapper } from 'app/{{{ DOMAIN }}}/experience/components/{{{ COMPONENT.PASCAL }}}/styles';
+import type { {{{ COMPONENT.PASCAL }}}Props } from 'app/{{{ DOMAIN }}}/experience/components/{{{ COMPONENT.PASCAL }}}/types';
+
+export const {{{ COMPONENT.PASCAL }}} = ({
+  as,
+  children,
+  className = '',
+  dataTestId = '{{{ COMPONENT.KEBAB }}}',
+  id,
+  role,
+  style,
+}: {{{ COMPONENT.PASCAL }}}Props) => (
+    <{{{ COMPONENT.PASCAL }}}Wrapper
+      as={as}
+      className={classNames(className, {
+        // TODO: Write {{{ COMPONENT.PASCAL }}}'s classes
+      })}
+      data-testid={dataTestId}
+      id={id}
+      role={role}
+      style={style}
+    >
+      {children}
+    </{{{ COMPONENT.PASCAL }}}Wrapper>
+  );

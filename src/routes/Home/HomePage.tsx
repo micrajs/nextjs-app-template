@@ -3,7 +3,7 @@ import type { HomePageProps } from 'routes/Home/types';
 
 const HomePage = ({ t }: HomePageProps) => (
   <>
-    <h1>{t('test')}</h1>
+    <h1>{t('home.title')}</h1>
   </>
 );
 

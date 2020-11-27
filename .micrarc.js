@@ -4,6 +4,7 @@ module.exports = {
   providers: [require('./.config/cli/service-providers/PathsServiceProvider')],
   commands: [
     require('./.config/cli/commands/make/MakeCoreModule'),
+    require('./.config/cli/commands/make/MakeCoreModuleComponent'),
     require('./.config/cli/commands/make/MakeDomainAction'),
     require('./.config/cli/commands/make/MakeDomainComponent'),
     require('./.config/cli/commands/make/MakeDomainDataSource'),
@@ -66,6 +67,16 @@ module.exports = {
       index: join(__dirname, './.config/cli/templates/module/index.mustache'),
       types: join(__dirname, './.config/cli/templates/module/types.mustache'),
       register: join(__dirname, './.config/cli/templates/module/register.mustache'),
+      experience: {
+        component: join(__dirname, './.config/cli/templates/module/experience/component.mustache'),
+        styles: join(__dirname, './.config/cli/templates/module/experience/styles.mustache'),
+        types: join(__dirname, './.config/cli/templates/module/experience/types.mustache'),
+        'setup-hook': join(
+          __dirname,
+          './.config/cli/templates/module/experience/setup-hook.mustache',
+        ),
+        feature: join(__dirname, './.config/cli/templates/module/experience/feature.mustache'),
+      },
     },
     helper: {
       index: join(__dirname, './.config/cli/templates/helper/index.mustache'),

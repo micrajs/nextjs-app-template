@@ -11,5 +11,7 @@ export default {
       name: 'Français',
     },
   },
-  test: 'translation value',
+  home: {
+    title: 'Home',
+  },
 };
