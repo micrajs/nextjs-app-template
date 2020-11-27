@@ -23,7 +23,6 @@
   },
   "include": [
     "next-env.d.ts",
-    ".config/testing/testing.register.d.ts",
     "**/*.d.ts",
     "**/*.ts",
     "**/*.tsx"

@@ -9,11 +9,10 @@
   },
   "include": [
     "next-env.d.ts",
+    ".config/testing/testing.register.d.ts",
     "**/*.d.ts",
     "**/*.ts",
-    "**/*.tsx",
-    ".config/cli/templates/domains/data/test.ts",
-    "./next-env.d.ts"
+    "**/*.tsx"
   ],
   "exclude": [
     "node_modules"
